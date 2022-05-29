@@ -1,0 +1,43 @@
+<app-toolbar></app-toolbar>
+<br><br>
+<div role="combobox" flex="column" style="margin-left: 16%;">
+    <mat-card class="matcard2">
+        <div> <strong>Mes plats favoris</strong>&nbsp;({{ countplat }}) </div><br><br>
+        <!-- <div >My WishList&nbsp;({{ countbook }})</div> -->
+        <div *ngFor="let plat of WishListdetails">
+            <div *ngIf="plat != null">
+                <div class="cartdetails" style="margin-left: 2%;" fxLayout="row" fxLayoutAlign="start start">
+                    
+                    <img class="bookimg" src="assets\platimage\{{plat.image}}" />
+                    <div class="bookdetails">
+                        <div class="booktitle" style="word-wrap: break-word;">
+                            <!-- Don't Make Me Think -->
+                            {{ plat.platName }}
+                        </div>
+
+                        <div class="sub" style="word-wrap: break-word;">
+                            {{ plat.chefName }}
+                        </div>
+                        <div class="price" style="word-wrap: break-word;">
+                           
+                             {{ plat.price }} DHS
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxLayoutAlign="start end" fxLayout="row wrap" style="margin-left: 12%; margin-bottom: 2%;">
+               
+              
+              
+
+             <button mat-raised-button class="button2" (click)="addtobag(plat.platId)"> Ajouter au panier</button>
+              <br>
+                <button mat-raised-button class="button" (click)="remoiveFromWish(plat.platId)">Retirer</button>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<br><br>
+<div style='margin-top: 330px;'>
+    <app-footer></app-footer>
+</div>

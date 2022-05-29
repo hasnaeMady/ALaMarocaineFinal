@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Poppins:wght@200&display=swap');
+/*.navbar {
+  background-color: rgba(0, 48, 46, 1);
+  letter-spacing: 2px;
+
+  font-weight: bold;
+  border-bottom: 1px solid white;
+
+}*/
+/*.navbar-brand {
+  /*text-transform: uppercase;*/
+  /*font-family: brush script MT;
+  font-size:40px;
+  text-align: left;
+  margin-right: 230px;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.navbar-nav {
+
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.nav-link {
+  color: white !important;
+  margin: 0 6px;
+}
+.nav-link.active,
+.nav-link:hover {
+  background-color: white;
+  color: rgba(0, 48, 46, 1) !important;
+}*/
+.navbar {
+  background-color: rgba(0, 48, 46, 1) !important ;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid white;
+
+}
+
+.navbar-brand {
+  /*text-transform: uppercase;*/
+  font-family: Patrick Hand SC;
+  font-size:40px;
+  text-align: left;
+  color: #fff;
+  margin: 0;
+  padding-top: 5px;
+}
+.navbar-nav {
+  margin: 0 auto;
+
+
+}
+.nav-link {
+  color: white !important;
+  margin: 0 6px;
+}
+.nav-link.active,
+.nav-link:hover {
+  background-color: white;
+  color: rgba(0, 48, 46, 1) !important;
+}
+
+
+
+#search {
+    background-color: rgb(255, 255, 255);
+    padding: 3px;
+    padding-left: 7px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+input.input:focus {
+    outline-width: 0;
+}
+
+input {
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    border-color: #fff;
+    font-size: 16px;
+}
+.btn1{
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(246, 183, 22, 1);
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  color: rgba(0, 48, 46, 1);
+  transition: all 0.3s ease-in 0s;
+  border-radius: 84px;
+}
+mat-icon {
+    color: #fff;
+}
+
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+
+button:focus {
+    outline: none;
+}
+
+img {
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+.menu{
+  margin-left: -25%;
+}

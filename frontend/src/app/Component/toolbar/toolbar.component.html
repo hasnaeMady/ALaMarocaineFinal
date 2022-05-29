@@ -1,0 +1,190 @@
+<nav id="myNavbar" class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+
+
+                                    <!--logo et Nom du site--> 
+    <a class="navbar-brand" href="home-client"><img src="assets/iconTitre.png" height="75">A La Marocaine</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+           <!-- Nos principes & Candidatures: Client-->
+        <li class="nav-item dropdown" *ngIf="!isSeller">
+
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Notre société
+              </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" style="color: rgba(0, 48, 46, 1);" href="#">Nos principes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" style="color: rgba(0, 48, 46, 1);" href="candidatures">Candidatures</a></li>
+            </ul>
+        </li>
+        <!--Plats: client-->
+        <li class="nav-item"  *ngIf="!isSeller">
+          <a class="nav-link"  href="#">Nos plats</a>
+        </li>
+         <!--Chefs : client-->
+         <li class="nav-item" *ngIf="!isSeller">
+          <a class="nav-link" href="#">Nos chefs</a>
+        </li>
+
+        
+
+
+
+        <!--Plats: seller-->
+        <li class="nav-item"  *ngIf="isSeller">
+          <a class="nav-link"  href="plats">Plats</a>
+        </li>
+          <!--Chefs: seller-->
+        <li class="nav-item" *ngIf="isSeller">
+          <a class="nav-link" href="chefs">Chefs</a>
+        </li>
+           <!--Candidatures seller-->
+          <li class="nav-item"  *ngIf="isSeller">
+            <a class="nav-link" href="candidatures-seller">Candidatures</a>
+          </li> 
+         <!--Commandes: seller-->
+        <li class="nav-item" *ngIf="isSeller">
+          <a class="nav-link" href="#">Commandes</a>
+        </li>
+
+      </ul>
+
+
+
+
+
+
+       <!-- La barre de recherche avec son bouton: recherche de  plat-->
+      <form class="d-flex">
+        <input id="search" class="form-control me-2"  [(ngModel)]="platName" (input)="platSearch()" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn1" type="submit">Chercher</button>
+      </form>
+
+
+
+              <!--Assez d'espace-->
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+    <form class="d-flex">
+
+
+
+
+        <!--historique des commandes: client-->
+
+        <div class="historique-commandes" align="center" *ngIf="!isSeller">
+          <span style="color: #fff; font-size: small;"></span>
+          <button mat-icon-button  routerLink="#" >
+          <mat-icon matBadgeSize="small" >history</mat-icon>
+          </button>
+        </div>
+        
+
+
+
+
+         <!--Favoris des plats: Client -->
+
+        <div class="wish-list" align="center" *ngIf="!isSeller">
+          <span style="color: #fff; font-size: small;"></span>
+          <button mat-icon-button  routerLink="/wish" >
+          <mat-icon matBadge="{{wishlistLength}}" matBadgeSize="small" >favorite_border</mat-icon>
+          </button>
+        </div>
+
+
+
+
+
+
+        <!--panier: Client-->
+        <div class="cart" align="center" *ngIf="!isSeller">
+                    <button mat-icon-button routerLink="/cart" >
+                          <mat-icon matBadge="{{ length }}" matBadgeSize="small">add_shopping_cart</mat-icon>
+                     </button>
+        </div>
+             
+
+
+
+        <!-- Profile deb -->
+        <div class="profile" fxFlex="5" align="center">
+
+
+             <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon style="transform: scale(1.7);">account_circle</mat-icon>
+             </button>
+
+
+
+            <mat-menu #menu="matMenu">
+
+              <div fxLayout="row" fxFlex="100" style=" width: 15em; height: 15em; position: initial; z-index: 3100;" fxLayoutAlign="center center">
+
+                      <div style="overflow: hidden; height: 12em;">
+
+                        <div style="margin-left: 6px;">
+                            <img style="height: 60px; width: 60px; padding: 0px; margin: 0px;" class="topic-avatar" mat-card-avatar src="assets\profilePic.jpg" />
+                        </div>
+                         
+                        <!--le nom de le utilisateur-->
+                        <div style="width: 100%;" *ngIf="isLogin">
+                            <h4>{{ name }}</h4>
+                        </div>
+                         
+                         <!--se déconnecter-->
+                        <div class="div-profile" *ngIf="isLogin">
+                            <div class="div-signout">
+                                <button (click)="logout($event)" style="background-color: whitesmoke;" mat-button [routerLink]="['']" class="signout-button">Signout
+                                </button>
+                            </div>
+                        </div>
+
+
+                         <!--Si on est en  mode visiteur (non connecté)  y a bouton login-->
+                        <div class="div-profile" *ngIf="!isLogin">
+                            <div class="div-signout" style="margin-top: 60px; margin-left: 5px;">
+                                <button [routerLink]="['/login']" mat-button class="signout-button" style="background-color: whitesmoke;">Login
+                                 </button>
+                            </div>
+                        </div>
+
+
+                      </div>
+
+              </div>
+
+            </mat-menu>
+
+
+        </div> <!--Profile fin-->
+
+
+
+      </form>
+
+    </div>
+
+
+
+  </div> <!--class="container-fluid"-->
+
+</nav>

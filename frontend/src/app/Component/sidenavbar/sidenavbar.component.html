@@ -1,0 +1,45 @@
+  
+<div class="container" *ngIf="isSeller"> <!--DANGER-->
+  <div>
+
+    <button id="adminBookBtn" mat-button class="navbutton" (click)="plats()">
+
+      <span class= "icon-label" >Plats</span>
+      </button>
+    <button id="sellerBookBtn" mat-button class="navbutton" (click)="sellerPlats()">
+
+
+       <span class= "icon-label" >Seller</span>
+       </button>
+
+
+       <button id="orderStatusBookBtn" mat-button class="navbutton" (click)="orders()">
+
+
+          <span class="icon-label">Orders</span>
+         </button>
+
+         <!-- <button mat-button class="navbutton">
+
+          <span class="icon-label">Reviews</span>
+         </button> -->
+</div>
+</div>
+
+
+
+
+
+
+<div class="container" *ngIf="isSeller">  <!--s'affiche pour  seller-->
+
+    <div>
+        <button mat-raised-button class="navButton"  (click)="sellerPlat()" type="submit"> Plats</button>
+     </div>
+
+    <div>
+        <button mat-raised-button class="navButton"   (click)="orderStatus()" type="submit">Order</button>
+    </div>
+
+    
+</div>
