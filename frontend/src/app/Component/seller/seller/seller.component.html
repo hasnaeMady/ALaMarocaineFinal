@@ -1,0 +1,100 @@
+<div *ngIf="sellerPlats && !orderPlats">
+
+<div class="main-container">
+
+
+    <div class="container">
+
+        <!--bouton icon ajouter  à droite ;  nous avons utilisé la méthode de seller.component.ts: addPlat() -->
+        <div class="addIcon"  style="display: flex; justify-content: flex-end; margin: 2rem 0.5rem;" *ngIf="sellerPlats">
+            <mat-icon class="icon-display" id="addBtn" (click)="addPlat()" matTooltip="Add Plat">add</mat-icon>
+        </div>
+
+
+         <!--Message qui s'affiche si aucun plat n'est disponible dans la base de données-->
+        <div class="alert alert-danger text-justify" *ngIf="plats.length==0">Rien à afficher,s'il vous plaît ajouter quelques plats</div>
+       
+
+       <!--Dans le cas contraire, la liste des plats s'affiche--> 
+        <div class="list-books">
+
+
+            <div *ngFor=" let plat of plats| platsearchpipe:platSearch">  <!--c'est quoi ce type platSearch et sert à quoi ????-->
+
+
+                <mat-card style="display: flex;flex-direction: row; width: auto; padding: 1rem;" matTooltip="{{ plat.platDescription }}">
+
+                    <div> <!-- servcice openImageDialog()-->
+                        <mat-card-title style="padding: 1rem;" (click)="openImageDialog(plat.platId)" matTooltip="Update Image">
+                            <img src="assets\platimage\{{plat.image}}" style="height: 13rem; width: 10rem; padding: 16px 0px 16px 16px ;" />
+                        </mat-card-title>
+                    </div>
+
+                    <div >
+
+                        <mat-card-content style="display: flex;flex-direction: column;flex-wrap: nowrap;width: 25rem; margin-top: 10px; margin-bottom: 0px;">
+                            <div class="out-of-stock" *ngIf="!plat.noOfPlats">En rupture de stock</div>
+
+                            <div class="bookname">Nom du plat : {{ plat.platName }}</div>
+                            <div class="authorname">Chef : {{ plat.chefName }}</div>
+                            <div class="price"> {{ plat.price }} DHS</div>
+                            <div class="noofbooks">Quantité : {{ plat.noOfPlats}}</div>
+                            <div class="description">Description : {{ plat.platDescription}}</div>
+
+
+                            <div style="display: flex; justify-content: flex-start; margin-left: 10px;">
+
+
+                                <div style="margin-left: 10px;">
+                                    <button id="editBtn" matTooltip="Edit Book" style="width: 5rem; outline: none;color: white;border-radius: 0px; background-color: rgba(0, 48, 46, 1);" (click)="editPlat(plat)" mat-button>
+                                        Modifier
+                                    </button>
+                                </div>
+
+
+                                <div style="margin-left: 10px;">
+                                    <button matTooltip="Delete Book" id="deleteBtn" style="width: 5rem; color: white; outline: none; border-radius: 0px; background-color: rgba(0, 48, 46, 1);" (click)="deletePlat(plat.platId)" mat-button>
+                                        Supprimer
+                                    </button>
+                                </div>
+
+                                <!--  commented by hasnae
+                                <div style="margin-left: 10px;" *ngIf="plat.status != 'approved' && plat.status != 'OnHold' ">
+                                    <button matTooltip="Verify Book" id="verifyBtn" style="width: 5rem; color: white; outline: none; border-radius: 0px; background-color: rgba(0, 48, 46, 1);" (click)="verifyPlat(plat.platId)" mat-button>
+                                        Vérifier
+                                    </button>
+                                </div>
+                            -->
+
+                            </div>
+
+                        </mat-card-content>
+
+
+                    </div>
+
+
+
+
+                </mat-card>
+            </div>
+
+
+        </div>  <!--list-books : la liste des plats-->
+
+
+    </div> <!--container : affiche soit aucun plat soit les plats disponibles-->
+
+
+
+</div>  <!--main-container: contenant de container : rien de spécial-->
+
+
+</div> <!-- *ngIf="sellerPlats && !orderPlats: l'affichage des plats disponibles ou bien message de non disponibilité des plats  -->
+
+
+
+
+<div *ngIf="!sellerPlats && orderPlats">
+    <app-orderstatus></app-orderstatus>
+</div>  <!--Les plats commandés  :je l'ai pas encore trouvé-->

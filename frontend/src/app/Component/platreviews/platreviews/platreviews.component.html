@@ -1,0 +1,65 @@
+<div role="combobox" flex="column" >
+
+
+
+    <div>
+
+
+
+      <div>
+
+
+
+        <mat-card
+          class="matcard2">
+          <div style="margin-bottom: 8px; margin-left: 27px; margin-top:20px; font: Bold 18px/15px Lato;" *ngIf="reviewList.length>0">
+            Reviews:
+            <button
+            *ngIf="totalRate > 0"
+            class="single"
+            fxLayout="row"
+            style="background-color: rgb(16,136,16)" >
+            <div>
+              {{ totalRate }}
+            </div>
+            <mat-icon
+              style="font-size: 14px; padding-top: 1.8px; color: white;"
+            >
+              star
+            </mat-icon>
+          </button>
+          </div>
+          <div style="margin-bottom: 8px; margin-left: 27px; margin-top:20px; font: Bold 18px/15px Lato;" *ngIf="reviewList.length==0">
+            Reviews: No reviews
+          </div>
+
+
+
+
+
+          <div *ngFor="let plat of reviewList">
+              <div style="margin-left: 27px;font: Bold 18px/15px Lato;">{{plat.name}}</div>
+              <div style="margin-left: 27px;">{{plat.review}}</div>
+               <br>
+          </div>
+
+
+  
+        </mat-card>
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+</div>
+  
+  
+  
