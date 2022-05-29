@@ -1,0 +1,103 @@
+<!--La petite fenetre avec titre  "Ajouter un plat" qui s'affiche quand on clique sur le bouton plus -->
+
+<div class="container"> <!--la fenêtre qui s"affiche-->
+
+     <!--le titre de cette fenêtre "Ajouter un plat"-->
+    <div style="background-color:  rgba(0, 48, 46, 1); width: 100%; margin-bottom: 10px;">
+        <h2 style="color: white; text-align: center;padding-top: 10px;">Ajouter un plat</h2>
+    </div>
+  
+  
+  
+     <!--le formulaire à remplir-->
+  
+    <form  >
+  
+        
+        <div class="plat-description"><!--TextField nom du plat-->
+            <mat-form-field appearance="outline"   >
+                <mat-label>Nom du plat</mat-label>
+                <mat-error *ngIf="platName.invalid"> {{platNameValidation()}}</mat-error>
+                <input type="name" matInput placeholder="Nom du plat" id="platName" [formControl]="platName"   [(ngModel)]="addplats.platName"  autocomplete="off" required>
+                <mat-icon matSuffix style="color: grey;">Plat</mat-icon>
+            </mat-form-field>
+        </div>
+  
+  
+  
+  
+        <div class="plat-description"><!--TextField nom du chef-->
+            <mat-form-field appearance="outline" >
+                <mat-label >Chef du plat</mat-label>
+                <mat-error *ngIf="chefName.invalid"> {{platChefValidation()}}</mat-error>
+                <input type="name" matInput placeholder="Chef du plat" id="platChef"  [(ngModel)]="addplats.chefName" [formControl]="chefName"  autocomplete="off" required>
+                <mat-icon matSuffix style="color: grey;">person</mat-icon>
+            </mat-form-field>
+        </div>
+  
+  
+  
+  
+  
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" > <!--Prix & Quantité-->
+
+
+            <mat-form-field appearance="outline" class="example-full-width3"> <!-- TextField Prix-->
+                <mat-label >Prix du plat</mat-label>
+                <mat-error *ngIf="price.invalid"> {{platPriceValidation()}}</mat-error>
+                <input type="number" matInput placeholder="Prix" id="price" [(ngModel)]="addplats.price" [formControl]="price" autocomplete="off" required>
+             </mat-form-field>
+
+  
+
+
+
+            <mat-form-field appearance="outline" class="example-full-width4" >   <!-- TextField Quantité-->
+                <mat-label>Quantité (personne)</mat-label>
+                <mat-error *ngIf="noOfPlats.invalid"> {{noOfPlatsValidation()}}</mat-error>
+                <input type="text"   matInput placeholder="Quantité" id="qty" [(ngModel)]="addplats.noOfPlats" [formControl]="noOfPlats" autocomplete="off" required>
+            </mat-form-field>
+
+
+
+            
+        </div>
+  
+  
+
+
+  
+        <div class="plat-description">   <!-- TextField Description du plat-->
+            <mat-form-field appearance="outline"  >
+                <mat-label>Description du plat</mat-label>
+                <mat-error *ngIf="platDescription.invalid"> {{platDescriptionValidation()}}</mat-error>
+                <input type="text"  id="desc" matInput placeholder="Description du plat" [(ngModel)]="addplats.platDescription" [formControl]="platDescription"autocomplete="off" required>
+                <mat-icon matSuffix style="color: grey;">edit</mat-icon>
+            </mat-form-field>
+        </div>
+  
+  
+  
+  
+        <div class="plat-description"> <!--le bouton pour insérer le fichier image du plat-->
+            <input type="file" name="image" (change)="onSelectedImage($event)" />
+        </div>
+  
+  
+  
+        <div class="submit">  <!--Bouton "Ajouter un plat"-->
+            <button mat-button id="submit" [disabled]=" platName.invalid || chefName.invalid || price.invalid || noOfPlats.invalid" type="submit" style="border: none;border-radius: 0px; outline: none;" (click)="onClickaddPlat()">
+                Ajouter un plat
+            </button>
+        </div>
+  
+  
+        
+    </form>
+  
+  
+  
+  
+  
+  </div>
+  

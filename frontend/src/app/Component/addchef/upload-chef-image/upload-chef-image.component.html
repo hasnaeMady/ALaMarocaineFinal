@@ -1,0 +1,34 @@
+<div class="container" fxLayout="column">
+
+
+
+
+    <div>
+
+
+        <div style="background-color: #A03037; width: 100%; margin-bottom: 1rem;">
+            <h2 style="color: white; text-align: center;padding: 10px;">Modifier l'image</h2>
+        </div>
+
+       <!--form-->
+        <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+        
+                <div class="form-group">
+                      <input type="file" name="image" (change)="onSelectedFile($event)" />
+                </div>
+
+
+                <div class="submit">
+                       <button mat-button type="submit">Télecharger</button>
+                </div>
+
+        </form>
+
+      
+    </div>
+
+
+
+
+</div>
+

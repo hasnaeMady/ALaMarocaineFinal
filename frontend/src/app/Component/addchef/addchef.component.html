@@ -1,0 +1,102 @@
+
+
+<div class="container"> 
+
+    
+   <div style="background-color:  rgba(0, 48, 46, 1); width: 100%; margin-bottom: 10px;">
+       <h2 style="color: white; text-align: center;padding-top: 10px;">Ajouter un chef</h2>
+   </div>
+ 
+ 
+ 
+  
+   <form  >
+ 
+       
+       <div class="plat-description">
+           <mat-form-field appearance="outline"   >
+               <mat-label>Nom du chef</mat-label>
+               <mat-error *ngIf="chefName.invalid"> {{chefNameValidation()}}</mat-error>
+               <input type="name" matInput placeholder="Nom du chef" id="platName" [formControl]="chefName"   [(ngModel)]="addchefs.chefName"  autocomplete="off" required>
+               <mat-icon matSuffix style="color: grey;">person</mat-icon>
+           </mat-form-field>
+       </div>
+ 
+ 
+ 
+ 
+       <div class="plat-description"><!--TextField prenom du chef-->
+           <mat-form-field appearance="outline" >
+               <mat-label >Prenom du chef</mat-label>
+               <mat-error *ngIf="chefPrenom.invalid"> {{chefPrenomValidation()}}</mat-error>
+               <input type="name" matInput placeholder="prenom du chef" id="platChef"  [(ngModel)]="addchefs.chefPrenom" [formControl]="chefPrenom"  autocomplete="off" required>
+               <mat-icon matSuffix style="color: grey;">person</mat-icon>
+           </mat-form-field>
+       </div>
+ 
+ 
+ 
+ 
+ 
+       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" > <!--origine & ?-->
+
+
+           <mat-form-field appearance="outline" class="example-full-width3"> <!-- TextField origine-->
+               <mat-label >Origine</mat-label>
+               <mat-error *ngIf="origine.invalid"> {{origineValidation()}}</mat-error>
+               <input type="name" matInput placeholder="Origine" id="price" [(ngModel)]="addchefs.origine" [formControl]="origine" autocomplete="off" required>
+            </mat-form-field>
+
+ 
+
+    
+
+           <mat-form-field appearance="outline" class="example-full-width4" >   
+               <mat-label>Chef De Semaine ?</mat-label>
+               <mat-error *ngIf="chefDeSemaine.invalid"> {{chefDeSemaineValidation()}}</mat-error>
+               <input type="text"   matInput placeholder="Chef de semaine ?" id="qty" [(ngModel)]="addchefs.chefDeSemaine" [formControl]="chefDeSemaine" autocomplete="off" required>
+           </mat-form-field>
+        
+
+
+           
+       </div>
+ 
+ 
+
+
+ 
+       <div class="plat-description">   <!-- TextField Description du plat-->
+           <mat-form-field appearance="outline"  >
+               <mat-label>Spécialité</mat-label>
+               <mat-error *ngIf="specialite.invalid"> {{specialiteValidation()}}</mat-error>
+               <input type="name"  id="desc" matInput placeholder="Spécialité du chef" [(ngModel)]="addchefs.specialite" [formControl]="specialite" autocomplete="off" required>
+               <mat-icon matSuffix style="color: grey;">edit</mat-icon>
+           </mat-form-field>
+       </div>
+ 
+ 
+ 
+ 
+       <div class="plat-description"> <!--le bouton pour insérer le fichier image du chef-->
+           <input type="file" name="image" (change)="onSelectedImage($event)" />
+       </div>
+ 
+ 
+ 
+       <div class="submit">  <!--Bouton "Ajouter un chef"-->
+           <button mat-button id="submit" [disabled]=" chefName.invalid || chefPrenom.invalid || origine.invalid " type="submit" style="border: none;border-radius: 0px; outline: none;" (click)="onClickaddChef()">
+               Ajouter un chef
+           </button>
+       </div>
+ 
+ 
+       
+   </form>
+ 
+ 
+ 
+ 
+ 
+ </div>
+ 

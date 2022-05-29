@@ -1,0 +1,68 @@
+
+<section>
+   
+   
+   
+   
+    <h1 style="
+ font-family: Ink Free;
+ font-size: 60px;
+ font-weight: 400;
+ line-height: 33px;
+
+ padding-top: 70px;
+ color:#00302E;
+ text-align:center;
+
+ text-decoration-color: #00302E;">
+ 🎊Chef De La Semaine🎊</h1>
+ 
+ 
+<!-- padding-left:400px;-->
+
+
+     <div>
+
+    
+         <tr *ngFor="let chef of chefList">
+           
+      <!-- <ng-container *ngIf="chef.chefDeSemaine == true">-->
+
+
+             
+
+     
+             <div class="row " >
+
+                 <div class="col-xs-6 float-right" style="font-size:25px;  font-family:cursive; text-align:center;padding-left:470px;width: 950px;padding-top:50px;">  
+                 <br/>
+               
+                     <strong><em>{{chef.chefName}}  {{chef.chefPrenom}}</em></strong> est le chef cuisinier cette semaine,sa ville d'origine  est {{chef.origine}}. Sa spécialité principale est <i>{{chef.specialite}}</i>.
+                 </div>
+
+                 
+                 <div class="col-xs-6">
+                    <img src="assets\chefs_images\{{chef.image}}" style="height:350px; margin-left:120px;margin-top:-260px"  class="rounded-circle float-right"/>
+                </div>
+                 
+               
+
+
+                  
+             </div>
+
+        <!-- </ng-container>-->
+
+
+         
+         
+     </div>
+    
+</section>
+ 
+   
+ 
+ 
+ 
+ 
+ 

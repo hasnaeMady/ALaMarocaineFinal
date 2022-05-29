@@ -1,0 +1,62 @@
+
+<div style="width: 100%;" style="height: 11%;">
+    <app-toolbar flexLayout="row" (toggleEvent)="nameEventHander($event)"></app-toolbar>
+    <!-- <app-toolbar flexLayout="row"></app-toolbar> -->
+</div>
+
+
+
+<div class="dashboard-content" style="height: 84%; margin-left: 0%; padding-left: 0%;">
+
+
+
+
+    <!--Affiché pour seller et admin -->
+    <div class="sidenav-div" *ngIf="isSeller"> <!--///////////danger///////////////////-->
+
+
+
+
+        <mat-sidenav-container class="sidenav-container">
+
+            <mat-sidenav [(opened)]="opened2" mode="side" class="matSidenav">
+                <app-sidenavbar class="app-sidenavbar" fxFlex></app-sidenavbar>
+            </mat-sidenav>
+
+            <mat-sidenav-content class="sidenav-content">
+
+                 <!--pour admin-->
+               <!--- <div *ngIf="isAdmin">  danger----------------------->
+                 <!-- <app-admin></app-admin> danger--------------------------------------------->
+               <!--</div> --danger>
+
+
+
+
+                 <-pour seller-->
+                <div *ngIf="isSeller"><!-------------------------------------->
+                    <app-seller></app-seller> <!------------------------->
+                </div>
+
+               
+
+
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+
+
+
+
+    <!-- n'est affiché ni au seller ni à l admin-->
+
+    <div *ngIf="!isSeller"> <!-----danger------------------------>
+        <app-displayplat></app-displayplat>
+        <router-outlet></router-outlet>
+    </div>
+
+
+
+</div>
+
+<app-footer></app-footer>

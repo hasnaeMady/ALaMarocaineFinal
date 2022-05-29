@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Poppins:wght@200&display=swap');
+footer {
+  background-color: rgba(0, 48, 46, 1);
+  padding: 20px 0 40px;
+}
+footer span {
+  color: rgba(246, 183, 22, 1);
+  font-size: 90px;
+  font-weight: 100;
+  line-height: 93px;
+}
+footer span:hover {
+  font-size: 80px;
+}
+footer h5 {
+  color: white;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif;
+}
+.share a {
+  line-height: 80px;
+  width: 80px;
+  text-align: center;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #ffffff;
+  overflow: hidden;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  margin: 0 -20px;
+  box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .share a:nth-child(1) {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  margin-left: 0;
+  }
+
+  .share a:nth-child(1):hover {
+  background-color: #61c5ec;
+  }
+
+  .share a:nth-child(2):hover {
+  background-color: #3B5998;
+  }
+
+  .share a:nth-child(3):hover {
+  background-color: #ea4335;
+  }
+
+  .share a:nth-child(4) {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-right: 0;
+  }
+
+  .share a:nth-child(4):hover {
+  background-color: #525050;
+  }
+
+
+
+  .share:hover a,
+  .share.hover a {
+  border-radius: 50%;
+  margin: 0 10px;
+  color: #111111;
+  font-size: 28px;
+  }
+
+  .share:hover a:hover,
+  .share.hover a:hover {
+      color: #fff;
+  }

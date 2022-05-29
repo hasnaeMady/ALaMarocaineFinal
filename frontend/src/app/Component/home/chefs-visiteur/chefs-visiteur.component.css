@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Poppins:wght@200&display=swap');
+.heading {
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .divider {
+    width: 318px;
+    height: 4px;
+    background: rgba(0, 48, 46, 1);
+    margin: 0 auto 20px;
+  }
+  
+  .jcarousel {position:relative; overflow:hidden;}
+  .jcarousel ul {width: 20000em; position:relative; list-style:none; margin:0; padding:0;}
+  .jcarousel li {float:left;} 
+  

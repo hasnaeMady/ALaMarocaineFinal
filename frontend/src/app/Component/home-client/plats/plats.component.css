@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Poppins:wght@200&display=swap');
+
+#plats{
+  background: rgba(0, 48, 46, 1);
+
+}
+.divider {
+  width: 318px;
+  height: 4px;
+
+  background: #FFFFFF;
+  margin: 0 auto 20px;
+}
+.heading {
+  text-align: center;
+  padding-bottom: 40px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 33px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+img {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+a:link {
+  text-decoration: none;
+}
+
+.titre{
+  padding-top: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-style:normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 33px;
+  text-align: center;
+  color: #FBDDBB;
+}
