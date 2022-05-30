@@ -34,15 +34,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
-
-
-
-
-
-
-/**                   Components            */
-
 import { ToolbarComponent } from './Component/toolbar/toolbar.component';
 import { WishComponent } from './Component/wish/wish.component';
 import { CartComponent } from './Component/cart/cart.component';
@@ -50,7 +41,6 @@ import { OrdergreetingComponent } from './Component/ordergreeting/ordergreeting.
 import { PagenotfoundComponent } from './Component/pagenotfound/pagenotfound.component';
 import { ForgetPasswordComponent } from './Component/auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './Component/auth/reset-password/reset-password.component';
-
 import { SpineerComponent } from './Component/spineer/spineer.component';
 import { LoginComponentComponent } from './Component/auth/login-component/login-component.component';
 import { RegistrationComponent } from './Component/auth/registration/registration.component';
@@ -69,25 +59,20 @@ import { HomeClientComponent } from './Component/home-client/home-client.compone
 import { AccueilClientComponent } from './Component/home-client/accueil-client/accueil-client.component';
 import { ChefsVisiteurComponent } from './Component/home/chefs-visiteur/chefs-visiteur.component';
 import { ChefDeSemaineComponent } from './Component/home/chef-de-semaine/chef-de-semaine.component';
-
-
 import { AddplatComponent } from './Component/addplat/addplat.component';
 import { UploadPlatImageComponent } from './Component/addplat/upload-plat-image/upload-plat-image/upload-plat-image.component';
-
-
 import { PlatreviewsComponent } from './Component/platreviews/platreviews/platreviews.component';
 import { DisplayplatComponent } from './Component/displayplat/displayplat/displayplat.component';
 import { RatedplatsComponent } from './Component/ratedplats/ratedplats.component';
 import { UpdatePlatComponent } from './Component/update-plat/update-plat/update-plat.component';
-
 import { AddchefComponent } from './Component/addchef/addchef.component';
-
+import { UpdateuserComponent } from './Component/updateuser/updateuser.component';
 import { UploadChefImageComponent } from './Component/addchef/upload-chef-image/upload-chef-image.component';
 import { UpdateChefComponent } from './Component/update-chef/update-chef.component';
 import { DisplaychefComponent } from './Component/displaychef/displaychef.component';
 import { HomeSellerComponent } from './Component/home-seller/home-seller.component';
 import { CandidaturesSellerComponent } from './Component/home-seller/candidatures-seller/candidatures-seller.component';
-import { AccueilSellerComponent } from './component/home-seller/accueil-seller/accueil-seller.component';
+import { AccueilSellerComponent } from './Component/home-seller/accueil-seller/accueil-seller.component';
 
 
 
@@ -105,6 +90,7 @@ import { AccueilSellerComponent } from './component/home-seller/accueil-seller/a
     AppComponent,
     ToolbarComponent,
     PlatsearchpipePipe,
+    UpdateuserComponent,
     CartComponent,
     OrdergreetingComponent,
     PagenotfoundComponent,
@@ -114,11 +100,11 @@ import { AccueilSellerComponent } from './component/home-seller/accueil-seller/a
     LoginComponentComponent,
     RegistrationComponent,
     SellerComponent,
+    RatereviewComponent,
     FooterComponent,
     DashboardComponent,
     SidenavbarComponent,
     GiverateComponent,
-  
     RatereviewComponent,
     AddplatComponent,
     OrderstatusComponent,
@@ -136,7 +122,6 @@ import { AccueilSellerComponent } from './component/home-seller/accueil-seller/a
     DisplayplatComponent,
     RatedplatsComponent,
     UpdatePlatComponent,
-
     AddchefComponent,
     UploadChefImageComponent,
     UpdateChefComponent,
