@@ -1,33 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { PlatModule } from 'app/Models/plat/plat.module';
 import { ActivatedRouteSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
-import {PlatService } from '../../Services/plat/plat.service';
-import { PlatModule } from '../../Models/plat/plat.module';
-
+import { PlatService } from 'app/Services/plat/plat.service';
 
 @Component({
   selector: 'app-giverate',
   templateUrl: './giverate.component.html',
   styleUrls: ['./giverate.component.scss']
 })
-
-
 export class GiverateComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
     private platService: PlatService,
     private route: ActivatedRoute,
-    private router: Router, ) {}
-
-
+    private router: Router,
+  ) {}
   // tslint:disable-next-line: no-input-rename
   @Input('starCount')  starCount = 5;
-
-
   color: string;
   private snackBarDuration = 2000;
   ratingArr = [];
@@ -41,41 +32,48 @@ export class GiverateComponent implements OnInit {
   platName: any;
   platChef: any;
   token: any;
-
+  token2: any;
   ngOnInit(): void {
-    this.platService.autoRefresh$.subscribe(() => {     ///plat.service : autoRefresh$
-      this.getRateOfPlat(this.platId);
-     });
-
-
+    this.token2=localStorage.getItem("token");
+    this.platService.autoRefresh$.subscribe(() => {
+      this.getRateOfplat(this.platId);
+    });
     this.platId = this.route.snapshot.paramMap.get('platId');
     console.log('platId:', this.platId);
-
     this.token = this.route.snapshot.paramMap.get('token');
     console.log('token:', this.token);
-
-    this.getPlatById();
-
+    //this.getplatById();
+    console.log('get plat called');
+    this.platService.getOnePlat(this.platId , this.token).subscribe((response: any) => {
+      console.log(response.obj);
+      console.log(response);
+      console.log(response.obj!=null);
+      if (response.obj != null) {
+        this.plat = response.obj;
+        this.platImage = response.obj.image;
+        console.log(this);
+        this.platChef = response.obj.chefName;
+        this.platName = response.obj.platName;
+      }
+    });
+    console.log('get plat called');
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
     }
-
-    this.getRateOfPlat(this.platId);
+    this.getRateOfplat(this.platId);
     this.getColor();
-
   }
 
 
   onClick(rating: any) {
-    this.snackBar.open('You rated ' + rating + ' / ' + this.starCount, '', {
+    this.snackBar.open('vous avez evaluez ' + rating + ' / ' + this.starCount, '', {
       duration: this.snackBarDuration,
     });
     this.rating = rating;
     return false;
   }
 
-
-  showIcon(index: number) {
+    showIcon(index: number) {
     if (this.rating >= index + 1) {
       return 'star';
     } else {
@@ -83,10 +81,9 @@ export class GiverateComponent implements OnInit {
     }
   }
 
-
-  getPlatById() {
+  getplatById() {
     console.log('get plat called');
-    this.platService.getOnePlat(this.platId , this.token).subscribe((response: any) => {  //plat.service: getOnePlat(this.platId , this.token)
+    this.platService.getOnePlat(this.platId , this.token).subscribe((response: any) => {
       if (response.obj != null) {
         this.plat = response.obj;
         this.platImage = response.obj.image;
@@ -96,8 +93,6 @@ export class GiverateComponent implements OnInit {
     });
   }
 
-
-
   submitRate() {
     const data = {
       rating: this.rating,
@@ -105,21 +100,20 @@ export class GiverateComponent implements OnInit {
     };
     console.log('rating is', data.rating);
     console.log('review is ', data.review);
-    this.platService.ratingandreview(this.platId, data , this.token)  //plat.service: ratingandreview(this.platId, data , this.token) 
+    this.platService
+      .ratingandreview(this.platId, data ,this.token2)
       .subscribe((response: any) => {
         console.log('submit rate response:', response);
         this.snackBar.open(response.response, 'ok', { duration: 2000 });
-        this.router.navigateByUrl('plats');
+        this.router.navigateByUrl('/plats');
       },
       (error: any) => {
-        this.snackBar.open(error.error.message, 'ok', { duration: 2000 });
+        console.log(error);
+        this.snackBar.open(error, 'ok', { duration: 2000 });
       }
 
       );
   }
-
-
-
 
 
   getColor() {
@@ -134,8 +128,7 @@ export class GiverateComponent implements OnInit {
     }
   }
 
-
-  getRateOfPlat(platId: number)  {
+  getRateOfplat(platId: number)  {
     console.log('plat id for avgrate:', platId);
     this.platService.getRateOfPlatById(platId).subscribe(
 

@@ -1,58 +1,40 @@
 <div style="width: 100%;" style="height: 11%;">
     <app-toolbar flexLayout="row"></app-toolbar>
 </div>
-
-
-
-
 <br><br>
-
-
 <div role="combobox" flex="column" class="rating-container">
-
-
     <div fxLayout="row" class="giverating" fxLayoutAlign="space-between stretch">
-
-
-        
-
         <mat-card>
             <div fxLayout="row" class="twocards">
                 <div>
-                    <img class="bookimg" src="assets\platimage\{{platImage}}" />
+                    <img class="platimg" src="assets\platimage\{{platImage}}" />
                 </div>
-
                 <div fxLayout="column" style="margin-left: 20px;">
-
-                    <div class="booktitle" style="word-wrap: break-word; margin-bottom: 5%; font-size: 20px;">
-                        <Strong>{{ platName }}</Strong>
+                    <div class="plattitle" style="word-wrap: break-word; margin-bottom: 5%; font-size: 20px;">
+                        <Strong>{{platName}}</Strong>
                     </div>
-
                     <div class="sub" style="word-wrap: break-word; margin-bottom: 5%;">
-                        by {{ platChef }}
+                        par {{platChef}}
                     </div>
-
                     <div>
                         <button *ngIf="totalRate > 0" class="single" fxLayout="row" [ngStyle]="{ 'background-color': color }">
-                        <div> {{ totalRate }}</div>
-                        <mat-icon style="font-size: 14px; padding-top: 1.8px; color: white;" >star</mat-icon>
-                        </button>
-                    </div>
-
+                <div>
+                  {{ totalRate }}
                 </div>
-
+                <mat-icon
+                  style="font-size: 14px; padding-top: 1.8px; color: rgb(16, 99, 33);"
+                >
+                  star
+                </mat-icon>
+              </button>
+                    </div>
+                </div>
             </div>
-            
         </mat-card>
-
-
-
-        
-
         <mat-card>
             <div class="twocards">
                 <div>
-                    <strong>Rate the Plat</strong>
+                    <strong>SÉLECTIONNEZ LES ÉTOILES POUR ÉVALUER LE PRODUIT</strong>
                 </div>
                 <div fxLayout="row" class="rating">
                     <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr; index as i" [id]="'star_' + i" (click)="onClick(i + 1)" fxLayout="row" [matTooltip]="ratingId + 1" matTooltipPosition="above">
@@ -61,43 +43,28 @@
               </mat-icon>
             </button>
                     <mat-error *ngIf="starCount == null || starCount == 0">
-                        Star count is <strong>required</strong> and cannot be zero
+                        Le nombre d'étoiles est <strong>obligatoire</strong>est ne peut pas etre égal à zéro
                     </mat-error>
                 </div>
             </div>
         </mat-card>
-
-
-
     </div>
-
-
-
     <div fxLayout="column" class="singlecard">
         <mat-card>
             <div style="margin-bottom: 2%;">
-                <strong>Review the Book</strong>
+                <strong>Commentaire detaillé</strong>
             </div>
             <div class="reviewtext">
-               <!-- <textarea matTextareaAutosize class="input" [(ngModel)]="review" placeholder="Review here........"></textarea>-->
+                <textarea matTextareaAutosize class="input" [(ngModel)]="review" placeholder="Commentez ici........"></textarea>
             </div>
             <div style="align-items: flex-end;">
                 <button mat-button class="rate-submit" (click)="submitRate()">
-            Submit
+            Enregistrer
           </button>
             </div>
         </mat-card>
     </div>
-
-
-
-
-
-
 </div>
-
-
-
-    <div style=" margin-top: 8%; margin-right: 0;" class="footer">
-                 <app-footer></app-footer>
-    </div>
+<div style=" margin-top: 8%; margin-right: 0;" class="footer">
+    <app-footer></app-footer>
+</div>
