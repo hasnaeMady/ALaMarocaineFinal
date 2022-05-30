@@ -1,5 +1,6 @@
 package com.bridgelabz.alamarocaine.repository;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -28,5 +29,10 @@ public interface UserRepository extends CrudRepository<Users, Long> {
 
 //   @Query(value="delete from cart_details where cart_id=?;",nativeQuery=true)
 //   CartDetails deleteCart(Long id);
+	@Query("from Users where user_id=:id")
+	Users fetchbyId(Long id);
+	@Query("from Users where user_id=:id")
+	Users getUserbyId(Long id);
+
 
 }
