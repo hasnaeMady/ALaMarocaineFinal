@@ -152,6 +152,10 @@
                          
                          <!--se déconnecter-->
                         <div class="div-profile" *ngIf="isLogin">
+                            <div class="div-infos">
+                                <button (click)="editUser(this)" style="background-color: whitesmoke;" mat-button [routerLink]="['']" class="infos-button">Mes infos
+                                </button>
+                            </div>
                             <div class="div-signout">
                                 <button (click)="logout($event)" style="background-color: whitesmoke;" mat-button [routerLink]="['']" class="signout-button">Signout
                                 </button>

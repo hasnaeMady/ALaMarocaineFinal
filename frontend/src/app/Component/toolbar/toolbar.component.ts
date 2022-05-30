@@ -5,6 +5,9 @@ import { TokenService } from '../../Services/token/token.service';
 import { Router } from '@angular/router';
 import { WishlistService } from '../../Services/wishlist/wishlist.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UpdateuserComponent } from '../updateuser/updateuser.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-toolbar',
@@ -17,7 +20,8 @@ export class ToolbarComponent implements OnInit {
                private route: Router,
                private cartService: CartService,
                private wishlistService: WishlistService,
-               private matSnackBar: MatSnackBar
+               private matSnackBar: MatSnackBar,
+               private dialog: MatDialog
     ) { }
 
   @Output() toggleEvent = new EventEmitter<boolean>();
@@ -32,9 +36,11 @@ export class ToolbarComponent implements OnInit {
   id: any;
   isUser = false;
   isSeller = false;
- 
+  userId: any;
+  mobileNumber:any;
   role: string;
   length: any;
+  password: string;
   platName: string;
   totalItem;
   isbudget = false;
@@ -107,7 +113,23 @@ this.service.setSearchPlatData(this.platName);
     
      });
   }
-
+  editUser(user:any): void {
+    const dialogRef = this.dialog.open(UpdateuserComponent, {
+      width: '23rem',
+      height: 'auto',
+      panelClass: 'custom-dialog-container',
+      data: {
+        name: user.name,
+        email: user.email,
+        mobileNumber: user.mobileNumber,
+        userId: user.userId,
+        password:user.password,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
 
 
 
