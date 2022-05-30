@@ -7,9 +7,6 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 
 import { SellerComponent } from './Component/seller/seller/seller.component';
 
-
-
-
 import { RegistrationComponent } from './Component/auth/registration/registration.component';
 import { LoginComponentComponent } from './Component/auth/login-component/login-component.component';
 import { ForgetPasswordComponent } from './Component/auth/forget-password/forget-password.component';
