@@ -15,7 +15,8 @@ export const environment = {
   ChefUrl: 'http://localhost:8020',
   quantity: 'http://localhost:8020/',
 
-
+  UserUrl: 'http://localhost:8020',
+  editUser:'users',
 
 
   
@@ -35,7 +36,7 @@ export const environment = {
  
   cusUrll : 'chefs/pagewise',
 
-
+  verifyPlats: 'books',
 
   addtocart: 'carts/addcart',
   getplatprice: 'getplatprice',
@@ -65,6 +66,7 @@ export const environment = {
   GET_PLATS_FROM_CART: '/alamarocaine/v3/cart/getcartplats',
   COUNT_PLATS_IN_CART: '/alamarocaine/v3/cart/platCount',
   addplatsquantity: 'addplatsquantity',
+
 
 
    
@@ -133,8 +135,7 @@ export const environment = {
 
   //danger approvedPlats: 'admin/plats',
  //danger getallOrderedPlats: 'alamarocaine/getOrdersByAdmin',
-
- //danger adminUrl: 'http://localhost:8020/',
+ adminUrl: 'http://localhost:8020/',
 
  //danger changeOrderstatus: 'alamarocaine/orderStatusByAdmin',
 
