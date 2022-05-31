@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Poppins:wght@200&display=swap');
+
+#condidature{
+  background: rgba(0, 48, 46, 1);
+
+}
+.divider {
+  width: 318px;
+  height: 4px;
+
+  background: #FFFFFF;
+  margin: 30px auto 20px;
+}
+.heading {
+  text-align: center;
+  padding-bottom: 0px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 33px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.alert{
+  margin: 25px;
+}
+
+#contact-form {
+  margin: 40px auto 0px;
+  font-size: 20px;
+  color: #fff;
+
+}
+.form-control {
+  height: 40px;
+  font-size: 18px;
+}
+#contact-form input[type=submit] {
+  margin: 40px auto 0px;
+  display: block;
+}
+
+.btn {
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  padding: 15px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(246, 183, 22, 1);
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  color: rgba(0, 48, 46, 1);
+  border-radius: 84px;
+  width: 307px;
+  height: 70px;
+  transition: all 0.3s ease-in 0s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+.btn:hover{
+  color: rgba(0, 48, 46, 1);
+  background-color: rgba(251, 221, 187, 1);
+}
+
+input.ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+textarea.ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+
+/*select.ng-touched.ng-invalid{
+  border: 1px solid red;
+}*/
+

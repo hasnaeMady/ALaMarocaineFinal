@@ -1,0 +1,78 @@
+<section id="condidature">
+  <div class="container">
+    <br>
+    <div class="divider"></div>
+    <div class="heading">
+        <h2>Condidature</h2>
+    </div>
+    <div *ngIf="alert" class="alert alert-success alert-dismissible" role="alert">
+      <strong>succès!</strong> votre candidature a été envoyée avec succès.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" id="contact-form" role="form" >
+
+      <div class="row">
+            <div class="col-lg-6">
+              <br>
+                <label for="prenom" class="form-label">Prénom *</label>
+                <input ngModel required #prenom ="ngModel" id="prenom" type="text" name="prenom" class="form-control" placeholder="Votre prénom" value="" >
+                <small class="form-text text-muted" *ngIf="prenom.touched && !prenom.valid">Le prénom est requis.</small>
+            </div>
+            <div class="col-lg-6">
+              <br>
+                <label for="nom" class="form-label">Nom *</label>
+                <input ngModel required #nom ="ngModel" id="nom" type="text" name="nom" class="form-control" placeholder="Votre Nom" value="">
+                <small class="form-text text-muted" *ngIf="nom.touched && !nom.valid">Le nom est requis.</small>
+            </div>
+            <div class="col-lg-6">
+              <br>
+                <label for="email" class="form-label">Email *</label>
+                <input type="email" ngModel email required #email="ngModel" id="email"  name="email" class="form-control" placeholder="Votre Email" value=""  >
+                <small class="form-text text-muted" *ngIf="email.touched && !email.valid">Cette adresse email n'est pas valide.</small>
+            </div>
+            <div class="col-lg-6">
+              <br>
+                <label for="telephone" class="form-label">Téléphone *</label>
+                <input type="tel" ngModel required pattern="[0-9]{10}" #telephone="ngModel" id="telephone" name="telephone" class="form-control" placeholder="Votre Téléphone" value="">
+                <small class="form-text text-muted" *ngIf="telephone.touched && !telephone.valid">Le téléphone est requis - 10 nombres.</small>
+            </div>
+
+            <div class="col-lg-6" ngM>
+              <br>
+              <label for="poste" class="form-label">Choisir le poste désiré </label>
+              <select   (change)="selectPoste($event)" ngModel #poste (ngModel)="selected" class="form-select" name="poste" >
+                <option value="" disabled selected hidden>Sélectionner un poste</option>
+                <option  *ngFor="let n of posteList">{{ n }}</option>
+
+              </select>
+
+            </div>
+
+            <div class="col-lg-6">
+              <br>
+              <label for="cv" class="form-label">Télécharger votre CV *</label>
+              <input ngModel required #cv ="ngModel" class="form-control" type="file" id="cv" name="cv">
+              <small class="form-text text-muted" *ngIf="cv.touched && !cv.valid">Le CV est requis.</small>
+            </div>
+            <div>
+              <br>
+                <label for="message" class="form-label">Motivation *</label>
+                <textarea ngModel required #message ="ngModel" id="message" name="message" class="form-control" placeholder="Votre Motivation" rows="4"></textarea>
+                <small class="form-text text-muted" *ngIf="message.touched && !message.valid">La motivation est requise.</small>
+            </div>
+            <div>
+              <br>
+                <p ><strong>* Ces informations sont requises.</strong></p>
+            </div>
+            <div>
+              <button type="submit" class="btn " [disabled]="!registerForm.valid">Envoyer</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+  </div>
+
+
+</section>
+
