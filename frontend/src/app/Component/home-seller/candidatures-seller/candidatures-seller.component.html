@@ -1,0 +1,35 @@
+<section id="adminCondidature">
+  <div class="container admin">
+    <div class="row">
+      <h1><strong>Liste des condidatures   </strong></h1>
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Roll number</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Poste désiré</th>
+                        <th>CV</th>
+                        <th>Motivation</th>
+                        <th>Supprimer</th>
+                      </tr>
+                    </thead>
+                    <tbody class="tbody">
+                      <tr *ngFor="let condidature of condidatureDetails">
+                        <td>{{condidature.rollNumber}}</td>
+                        <td>{{condidature.nom}}</td>
+                        <td>{{condidature.prenom}}</td>
+                        <td>{{condidature.email}}</td>
+                        <td>{{condidature.telephone}}</td>
+                        <td>{{condidature.poste}}</td>
+                        <td>{{condidature.cv}}</td>
+                        <td>{{condidature.message}}</td>
+                        <td><button type="button" class="btn btn-danger" (click)="deleteCondidature(condidature)">Delete</button></td>
+                      </tr>
+                    </tbody>
+                    </table>
+    </div>
+  </div>
+</section>
