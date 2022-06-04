@@ -6,25 +6,23 @@
         <div class="cartdetails" fxLayout="row" fxLayoutAlign="start stretch" style="margin-left: 2%;">
             <mat-card class="bookMatcard" fxLayoutAlign="center fit-content">
                 <div class="image">
-                    <img class="bookimg" src="assets\platimage\{{plat.image}}" />
+                    <img class="bookimg" src="assets\bookimage\{{plat.image}}" />
                 </div>
             </mat-card>
             <div class="bookdetails">
                 <div class="booktitle" style="word-wrap: break-word; margin-bottom: 2%; font-size: 20px;">
-                    <Strong>{{ plat.platName }}</Strong>
+                    <Strong>{{plat.bookName}}</Strong>
                 </div>
 
                 <div class="sub" style="word-wrap: break-word; margin-bottom: 4%;">
-                    Préparé par {{plat.chefName }}
+                    Préparé par {{ plat.authorName }}
                 </div>
                 <div style="margin-bottom: 4%; font-size: 18px; margin-left: -25px;">
                     <Strong>{{ plat.price }} DHS</Strong>
                 </div>
-
-
-                
-
-
+                <!--<div style="margin-bottom: 5%; font-size: 14px; margin-left: -25px;">
+                    <strong>Seller:</strong>{{ " Dwayne Johnson" }}
+                </div>-->
                 <div fxLayout="row" fxLayoutAlign="spacearound stretch" style="margin-bottom: 5%; margin-left: -25px;" fxLayoutGap="35%">
                     <button class="total" fxLayout="row" style="
                 font-size: 14px;
@@ -44,61 +42,38 @@
                 star
               </mat-icon>
             </button>
-                    <!-- <button mat-button class="rating" (click)="rateNow()" style="color: #0a0102; background-color: white;">
-              <strong >RATE BOOK</strong>
-            </button> -->
+                    <button mat-button class="rating" (click)="rateNow(this)" style="color: #0a0102; background-color: rgb(188, 201, 188);">
+              <strong >Evaluez maintenant</strong>
+            </button> 
                 </div>
                 <div fxLayout="row wrap">
-
-                    
                     <div fxLayout="row" style="margin-bottom: 5%;">
                         <div style="font-size: 18px; margin-left: -25px;">
-                            <strong>Description:</strong>
+                            <strong>Description:{{plat.platDescription}}</strong>
                         </div>
-                        <div style="margin-left: 6px;color: #9d9d9d !important;margin-top: 2px;">
-                            {{plat.platDescription}}
+                        <div style="
+                  margin-left: 6px;
+                  color: #9d9d9d !important;
+                  margin-top: 2px;
+                ">
+                            {{plat.platDetails}}
                         </div>
                     </div>
-
-
-
                     <div fxLayout="row" style="margin-left: -25px;">
-
-
-
-
-
                         <button *ngIf="!isAdded; else added" mat-button class="add" (click)="addToCart(plat.platId)">
-                           Ajouter au panier
-                        </button>
-
-
-
-
+                Ajouter au panier
+              </button>
                         <ng-template #added>
                             <button mat-button class="add" style="color: rgba(246, 183, 22, 1); background-color: rgba(0, 48, 46, 1);">
-                            Produit ajouté
-                            </button>
+                Produit ajouté
+                </button>
                         </ng-template>
-
-
-
-
-
-                                                    <!--A CORRIGER-->
-                        <button mat-button *ngIf="!isListed" class="add" (click)="addToWishlist()" style="color: #0a0102; background-color: white;">
-                           WISHLIST
-                        </button>
-
-                         <button mat-button class="add" style="color: white; background-color: #3371b5;">
-                            IN WISHLIST
-                       </button> 
-                                                     <!------->
-
-
-
-
-
+                        <!--<button mat-button *ngIf="!isListed" class="add" (click)="addToWishlist()" style="color: #0a0102; background-color: white;">
+                WISHLIST
+              </button>-->
+                        <!-- <button mat-button class="add" style="color: white; background-color: #3371b5;">
+                IN WISHLIST
+              </button> -->
                     </div>
                 </div>
             </div>
@@ -139,7 +114,7 @@
             </div>
             <div>
                 <label *ngIf="totalRate == 0" class="total" style="color: black; background-color: white;">
-            Ajouter votre avis!
+                    Les clients ayant acheté ce produit n'ont pas encore émis d'avis.
           </label>
             </div>
         </div>

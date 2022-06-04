@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter,Component, OnInit } from '@angular/core';
+import { PlatModule } from 'app/Models/plat/plat.module';
+import { PlatService } from 'app/Services/plat/plat.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-
-
-import { CartService } from '../../Services/cart/cart.service';
-import { PlatModule } from '../../Models/plat/plat.module';
-import { PlatService } from '../../Services/plat/plat.service';
+import { CartService } from 'app/Services/cart/cart.service';
+import { Navigation } from '@angular/router';
 
 @Component({
   selector: 'app-ratereview',
@@ -25,21 +24,19 @@ export class RatereviewComponent implements OnInit {
     private route: ActivatedRoute,
     private cartService : CartService,
   ) { }
-
-
   platId: any;
   ratings: Array<any> = [];
   rate: any;
   visible: boolean;
   isAdded: boolean;
   isListed: boolean;
-  plat:PlatModule;
+  plat: PlatModule;
   platImage: any;
   platName: any;
-  platChef: any;
+  platAuthor: any;
   platPrice: any;
-  bookDescription: any;
- 
+  platDescription: any;
+  sellerName: any;
   show: boolean;
 
   totalRate = 0;
@@ -61,19 +58,15 @@ export class RatereviewComponent implements OnInit {
     // this.getRateOfBookById();
   }
 
-
-
   getPlatById() {
     this.platService.getOnePlatById(this.platId).subscribe((response: any) => {
       console.log(response);
       this.plat = response.obj;
-      console.log("getplat by id:" ,this.plat);
+      console.log("get plat by id:" ,this.plat);
       console.log(this.plat, 'kkkkkkkk');
      });
   }
-
-
-  getRateOfPlatById() {
+  getRateOfBookById() {
     this.platService.getRateOfPlatById(this.platId).subscribe((response: any) => {
       if (response.obj != null) {
         this.rate = response.obj ;
@@ -82,13 +75,12 @@ export class RatereviewComponent implements OnInit {
         }
       }
     });
-   }
+  }
 
-
-  rateNow() {
+  rateNow(plat:any) {
     // if (this.visible) {
-      // localStorage.setItem("totalRate", this.total);
-      this.router.navigate(['plats/ratingandreview/' + this.platId]);
+      //this.router.navigateByUrl('plats/ratingandreview/' + this.bookId);
+      this.router.navigateByUrl('plats/rateandreview/' + this.platId);
     // }
   }
 
@@ -132,32 +124,27 @@ export class RatereviewComponent implements OnInit {
   }
 
 
-  addToCart(platId: any) {
-
-
+  addToCart(bookId: any) {
     if (localStorage.getItem('token') === null) {
-
-      this.matSnackBar.open('Please Login first', 'ok', {duration: 5000});
-
-      sessionStorage.setItem(platId, platId);
+      this.matSnackBar.open('Please Login first', 'ok', {
+        duration: 5000
+      });
+      sessionStorage.setItem(bookId, bookId);
       this.isAdded = true;
       this.router.navigateByUrl('login');
-
     }
-
-    sessionStorage.setItem(platId, platId);
+    sessionStorage.setItem(bookId, bookId);
     this.ngOnInit();
-    this.cartService.addToCart(platId).subscribe(
+    this.cartService.addToCart(bookId).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
-
   }
   
     handleResponse(data: any) {
       console.log(data);
       this.matSnackBar.open('Plat ajouté au panier!' , 'ok', {
-duration: 5000
+      duration: 5000
     });
   }
   
@@ -165,7 +152,10 @@ duration: 5000
     handleError(error: any) {
       this.error = error.error.message;
       console.log(error);
-      this.matSnackBar.open(this.error, 'ok', { duration: 5000});}
+      this.matSnackBar.open(this.error, 'ok', {
+      duration: 5000
+    });
+    }
 
     // if (this.visible) {
     //   this.bookService.addToCart(this.bookId).subscribe((response: any) => {
@@ -185,10 +175,6 @@ duration: 5000
     //     duration: 1000,
     //   });
     // 
-
-
-
-    
 
   // adding book to wish list if user login
   addToWishlist() {
@@ -210,35 +196,6 @@ duration: 5000
     //   });
     // }
   }
-
-  /*Hasnae:
-   * addToWishlist() {
-    // if (this.visible) {
-    //   this.platService.addToWishList(this.platId).subscribe((response: any) => {
-    //     console.log(response["obj"]);
-    //     this.isListed = response["obj"];
-    //     this._matSnackBar.open("Plat ajouté à la liste des favoris", "ok", {
-    //       duration: 1000,
-    //     });
-    //   });
-    // } else {
-    //   const dialogRef = this.dialog.open(LoginComponent);
-    //   dialogRef.afterClosed().subscribe((result) => {
-    //     window.location.reload();
-    //   });
-    //   this._matSnackBar.open("please login", "ok", {
-    //     duration: 1000,
-    //   });
-    // }
-  }
-
-
-   * 
-   * 
-   * 
- */
-
-
   isAddedToWishList() {
     // this.bookService
     //   .isAddedToWishList(this.bookId)
@@ -246,18 +203,4 @@ duration: 5000
     //     this.isListed = response["obj"];
     //   });
   }
-
-
-  /*** Hasnae
-   * isAddedToWishList() {
-    // this.platService
-    //   .isAddedToWishList(this.platId)
-    //   .subscribe((response: any) => {
-    //     this.isListed = response["obj"];
-    //   });
-  }
-   * 
-   * 
-   * 
-   */
 }
