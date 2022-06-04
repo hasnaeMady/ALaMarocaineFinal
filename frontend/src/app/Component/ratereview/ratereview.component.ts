@@ -33,7 +33,7 @@ export class RatereviewComponent implements OnInit {
   plat: PlatModule;
   platImage: any;
   platName: any;
-  platAuthor: any;
+  chefName: any;
   platPrice: any;
   platDescription: any;
   sellerName: any;
@@ -89,7 +89,7 @@ export class RatereviewComponent implements OnInit {
     .getReview(this.platId)
     .subscribe((response: any) => {
       this.ratings = response.obj;
-      console.log('rate and reviews for book ' + this.ratings);
+      console.log('rate and reviews for plat ' + this.ratings);
 
       // tslint:disable-next-line: prefer-const
       // tslint:disable-next-line: forin
@@ -124,18 +124,18 @@ export class RatereviewComponent implements OnInit {
   }
 
 
-  addToCart(bookId: any) {
+  addToCart(platId: any) {
     if (localStorage.getItem('token') === null) {
       this.matSnackBar.open('Please Login first', 'ok', {
         duration: 5000
       });
-      sessionStorage.setItem(bookId, bookId);
+      sessionStorage.setItem(platId, platId);
       this.isAdded = true;
       this.router.navigateByUrl('login');
     }
-    sessionStorage.setItem(bookId, bookId);
+    sessionStorage.setItem(platId, platId);
     this.ngOnInit();
-    this.cartService.addToCart(bookId).subscribe(
+    this.cartService.addToCart(platId).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
