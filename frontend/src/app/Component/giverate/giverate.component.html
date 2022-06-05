@@ -7,14 +7,14 @@
         <mat-card>
             <div fxLayout="row" class="twocards">
                 <div>
-                    <img class="platimg" src="assets\platimage\{{platImage}}" />
+                    <img class="bookimg" src="assets\platimage\{{platImage}}" />
                 </div>
                 <div fxLayout="column" style="margin-left: 20px;">
-                    <div class="plattitle" style="word-wrap: break-word; margin-bottom: 5%; font-size: 20px;">
+                    <div class="booktitle" style="word-wrap: break-word; margin-bottom: 5%; font-size: 20px;">
                         <Strong>{{platName}}</Strong>
                     </div>
                     <div class="sub" style="word-wrap: break-word; margin-bottom: 5%;">
-                        par {{platChef}}
+                        par {{ chefName }}
                     </div>
                     <div>
                         <button *ngIf="totalRate > 0" class="single" fxLayout="row" [ngStyle]="{ 'background-color': color }">

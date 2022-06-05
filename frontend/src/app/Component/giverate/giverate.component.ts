@@ -27,22 +27,21 @@ export class GiverateComponent implements OnInit {
   platId: any;
   review: any;
   totalRate: any;
-
   platImage: any;
   platName: any;
-  platChef: any;
+  chefName: any;
   token: any;
   token2: any;
   ngOnInit(): void {
     this.token2=localStorage.getItem("token");
     this.platService.autoRefresh$.subscribe(() => {
-      this.getRateOfplat(this.platId);
+      this.getRateOfPlat(this.platId);
     });
     this.platId = this.route.snapshot.paramMap.get('platId');
     console.log('platId:', this.platId);
     this.token = this.route.snapshot.paramMap.get('token');
     console.log('token:', this.token);
-    //this.getplatById();
+    //this.getBookById();
     console.log('get plat called');
     this.platService.getOnePlat(this.platId , this.token).subscribe((response: any) => {
       console.log(response.obj);
@@ -52,7 +51,7 @@ export class GiverateComponent implements OnInit {
         this.plat = response.obj;
         this.platImage = response.obj.image;
         console.log(this);
-        this.platChef = response.obj.chefName;
+        this.chefName = response.obj.chefName;
         this.platName = response.obj.platName;
       }
     });
@@ -60,7 +59,7 @@ export class GiverateComponent implements OnInit {
     for (let index = 0; index < this.starCount; index++) {
       this.ratingArr.push(index);
     }
-    this.getRateOfplat(this.platId);
+    this.getRateOfPlat(this.platId);
     this.getColor();
   }
 
@@ -81,13 +80,13 @@ export class GiverateComponent implements OnInit {
     }
   }
 
-  getplatById() {
+  getPlatById() {
     console.log('get plat called');
     this.platService.getOnePlat(this.platId , this.token).subscribe((response: any) => {
       if (response.obj != null) {
         this.plat = response.obj;
         this.platImage = response.obj.image;
-        this.platChef = response.obj.chefName;
+        this.chefName = response.obj.chefName;
         this.platName = response.obj.platName;
       }
     });
@@ -128,7 +127,7 @@ export class GiverateComponent implements OnInit {
     }
   }
 
-  getRateOfplat(platId: number)  {
+  getRateOfPlat(platId: number)  {
     console.log('plat id for avgrate:', platId);
     this.platService.getRateOfPlatById(platId).subscribe(
 
