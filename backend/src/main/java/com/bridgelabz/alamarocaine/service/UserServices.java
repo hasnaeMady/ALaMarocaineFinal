@@ -25,5 +25,7 @@ public interface UserServices {
 
 	List<Users> getUsers();
 
-	Users getSingleUser(String token);
+	Users getOneUser(String token);
+	boolean editUser(long userId, EditUserDto information, String token);
+	Users getUserbyId(Long userId);
 }
