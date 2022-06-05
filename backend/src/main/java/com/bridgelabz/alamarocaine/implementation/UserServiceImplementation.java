@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.bridgelabz.alamarocaine.repository.UserRepository;
+import com.bridgelabz.alamarocaine.dto.EditUserDto;
+
 import com.bridgelabz.alamarocaine.dto.UserDto;
 import com.bridgelabz.alamarocaine.entity.Users;
 import com.bridgelabz.alamarocaine.exception.UserException;
