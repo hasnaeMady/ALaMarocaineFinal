@@ -5,6 +5,7 @@ package com.bridgelabz.alamarocaine.service;
 
 import java.util.List;
 
+import com.bridgelabz.alamarocaine.dto.EditUserDto;
 import com.bridgelabz.alamarocaine.dto.UserDto;
 import com.bridgelabz.alamarocaine.entity.Users;
 import com.bridgelabz.alamarocaine.request.LoginInformation;
