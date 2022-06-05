@@ -41,10 +41,10 @@ public class UserController {
 		boolean result = service.register(information);
 		if (result) {
 			return ResponseEntity.status(HttpStatus.CREATED)
-					.body(new Response("inscription rÈussi", 200, information));
+					.body(new Response("inscription r√©ussi", 200, information));
 		} else {
 			return ResponseEntity.status(HttpStatus.ALREADY_REPORTED)
-					.body(new Response("Utilisateur existe dÈja !", 400, information));
+					.body(new Response("Utilisateur existe d√©ja !", 400, information));
 		}
 	}
 
@@ -54,7 +54,7 @@ public class UserController {
 		Users users = service.login(information);
 		if (users != null) {
 			String token = generate.jwtToken(users.getUserId());
-			return ResponseEntity.status(HttpStatus.ACCEPTED).header("connexion rÈussie", information.getEmail())
+			return ResponseEntity.status(HttpStatus.ACCEPTED).header("connexion r√©ussie", information.getEmail())
 					.body(new UsersDetailRes(token, 200, users));
 		} else {
 			throw new UserException(" les informations d'identification invalides");
@@ -70,12 +70,12 @@ public class UserController {
 	 */
 	@GetMapping("/user/verify/{token}")
 	public ResponseEntity<Response> userVerification(@PathVariable("token") String token) throws Exception {
-		System.out.println("jeton de vÈrification" + token);
+		System.out.println("jeton de v√©rification" + token);
 		boolean update = service.verify(token);
 		if (update) {
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("vÈrifiÈ", 200));
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("v√©rifi√©", 200));
 		} else {
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("non vÈrifiÈ", 400));
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("non v√©rifi√©", 400));
 		}
 	}
 
@@ -90,7 +90,7 @@ public class UserController {
 
 		boolean result = service.isUserExist(passwordReset.getEmail());
 		if (result) {
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("VÈrifiez votre boite mail : e-mail envoyÈ", 200));
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("V√©rifiez votre boite mail : e-mail envoy√©", 200));
 		} else {
 			return ResponseEntity.status(HttpStatus.ACCEPTED)
 					.body(new Response("l'email saisie n'existe pas!", 400));
@@ -99,7 +99,7 @@ public class UserController {
 
 	@PutMapping("user/update/{token}")
 	public ResponseEntity<Response> update(@PathVariable("token") String token, @RequestBody PasswordUpdate update) {
-		System.out.println("contrÙleur interne  " + token);
+		System.out.println("contr√¥leur interne  " + token);
 		boolean result = service.update(update, token);
 		if (result) {
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("", 200));
@@ -110,9 +110,22 @@ public class UserController {
 	}
 
 	@GetMapping("user/getOneUser")
-	public ResponseEntity<Response> getOneUsers(@RequestHeader("token") String token) {
-		Users user = service.getSingleUser(token);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Response("user is", 200, user));
+	public ResponseEntity<Response> getOneUser(@RequestHeader("token") String token){
+	Users user=service.getOneUser(token);
+		return ResponseEntity.status(HttpStatus.ACCEPTED)
+				.body(new Response("user is", 200, user));
 	}
+	@GetMapping(value = "users/getuser/{userId}")
+	public ResponseEntity<UserResponse> getUserbyId(@PathVariable("userId") Long userId) {
+		Users info = service.getUserbyId(userId);
+		return ResponseEntity.status(HttpStatus.OK).body(new UserResponse("The user is", info));
+	}
+
+	@PutMapping("users/{userId}")
+	public ResponseEntity<UserResponse> editUser(@PathVariable("userId") long userId,@RequestBody EditUserDto information,@RequestHeader("token") String token){
+		boolean res =service.editUser(userId,information,token);
+		if(res)
+			return ResponseEntity.status(HttpStatus.CREATED).body(new UserResponse(200, "L'utilisateur est mis √† jour avec succ√®s"));
+		return null;
 
 }
