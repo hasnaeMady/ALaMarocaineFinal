@@ -25,5 +25,7 @@ public interface IUserRepository {
 	Users getUserById(Long id);
 
 	List<Users> getUsers();
+	
+	Users save(Users userinformation);
 
 }
