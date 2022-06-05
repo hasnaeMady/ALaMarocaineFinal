@@ -1,4 +1,4 @@
-package com.bridgelabz.bookstore.dto;
+package com.bridgelabz.alamarocaine.dto;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
