@@ -14,7 +14,6 @@ import com.bridgelabz.alamarocaine.request.PasswordUpdate;
  */
 
 public interface IUserRepository {
-	Users save(Users users);
 
 	Users getUser(String email);
 
