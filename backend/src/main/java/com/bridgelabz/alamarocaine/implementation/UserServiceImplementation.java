@@ -217,15 +217,14 @@ public class UserServiceImplementation implements UserServices {
 		return null;
 	}
 
-	
 	@Transactional
 	@Override
-	public Users getSingleUser(String token) {
+	public Users getOneUser(String token) {
 		Long id;
 		try {
 			id = (long) generate.parseJWT(token);
 		} catch (Exception e) {
-			throw new UserException("L'utilisateur n'existe pas");
+			throw new UserException("Utilisateur n'existe pas");
 		}
 		
 		if(isValidToken("admin", token)) {
@@ -234,6 +233,35 @@ public class UserServiceImplementation implements UserServices {
 		}else {
 			throw new UserException("token is not valid");
 		}
+	}
+	
+	@Override
+	public boolean editUser(long userId,EditUserDto information,String token) {
+					Users info = userRepository.getUserbyId(userId);
+					if(info!=null) 
+					{
+						info.setUserId(userId);
+						info.setName(information.getName());
+						info.setPassword(information.getPassword());
+						info.setMobileNumber(information.getMobileNumber());
+						Users i =userRepository.save(info);
+						System.out.println(i.getName());
+						System.out.println(i.getEmail());
+						System.out.println(i.getPassword());
+						System.out.println(i.getUserId());
+						return true;
+					}
+	
+	
+			return false;}
+
+	@Override
+	public Users getUserbyId(Long userId) {
+		Users info = userRepository.fetchbyId(userId);
+		if (info != null) {
+			return info;
+		}
+		return null;
 	}
 
 }
