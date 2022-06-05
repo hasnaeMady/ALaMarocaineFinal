@@ -23,6 +23,8 @@ import com.bridgelabz.alamarocaine.response.Response;
 import com.bridgelabz.alamarocaine.response.UsersDetailRes;
 import com.bridgelabz.alamarocaine.service.UserServices;
 import com.bridgelabz.alamarocaine.util.JwtGenerator;
+import com.bridgelabz.alamarocaine.dto.EditUserDto;
+import com.bridgelabz.alamarocaine.response.UserResponse;
 
 @RestController
 @CrossOrigin
@@ -128,4 +130,4 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.CREATED).body(new UserResponse(200, "L'utilisateur est mis à jour avec succès"));
 		return null;
 
-}
+}}
