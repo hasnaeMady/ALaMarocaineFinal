@@ -17,6 +17,7 @@ import com.bridgelabz.alamarocaine.dto.UserDto;
 import com.bridgelabz.alamarocaine.entity.Users;
 import com.bridgelabz.alamarocaine.exception.UserException;
 import com.bridgelabz.alamarocaine.repository.IUserRepository;
+import com.bridgelabz.alamarocaine.repository.UserRepository;
 import com.bridgelabz.alamarocaine.request.LoginInformation;
 import com.bridgelabz.alamarocaine.request.PasswordUpdate;
 import com.bridgelabz.alamarocaine.response.EmailData;
