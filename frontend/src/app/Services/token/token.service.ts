@@ -21,8 +21,10 @@ export class TokenService {
   public set(data) {
     localStorage.setItem('token', data.token);
     localStorage.setItem('email', data.obj.email);
-    localStorage.setItem('Name', data.obj.name);
+    localStorage.setItem('name', data.obj.name);
     localStorage.setItem('phone', data.obj.mobileNumber);
+    localStorage.setItem('password', data.obj.password);
+    localStorage.setItem('id', data.obj.userId);
   }
 
 
