@@ -1,133 +1,223 @@
-.display {
-    margin-left: 10%;
-  }
-  .cartdetails {
-    flex-wrap: wrap;
-    display: block;
-    position: relative;
-    align-items: flex-start;
-    padding-top: 25px;
-  }
-  .bookMatcard {
-    background-color: whitesmoke;
-    padding-bottom: 2.5%;
-    padding-top: 2.5%;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .bookdetails {
-    flex-wrap: wrap;
-    display: block;
-    // flex-direction: column;
-    margin-left: 45px;
-    margin-bottom: 30px;
-    width: 50%;
-  }
-  .image {
-    display: inline-block;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .booktitle {
+.container {
+    height: 100%;
     width: 100%;
-    text-align: left;
-    letter-spacing: 0px;
-    color: #0a0102;
-    opacity: 1;
-    display: flex;
-    margin-left: -25px;
-  }
-  .sub {
-    color: #9d9d9d;
-    opacity: 1;
-    margin-left: -25px;
-  }
-
-  .matcard2 {
-    background: #ffffff 0% 0% no-repeat padding-box;
+    margin-top: 5%;
+    // margin-left: 1rem;
+    // margin-right: 1rem;
+    padding-bottom: 5%;
+    // margin: 0rem;
+    // padding: 0rem;
     display: flex;
     flex-direction: column;
-    width: 85%;
-    border: 1px solid #9d9d9d;
-    border-radius: 3px;
   }
-  .bookimg {
-    top: 192px;
-    left: 213px;
-    width: 200px;
-    height: 312px;
-  }
-  .bookimg2 {
-    top: 192px;
-    left: 213px;
-    width: 90px;
-    height: 218px;
+  button {
+    background-color: rgba(0, 48, 46, 1);
+    font-size: 1rem;
+    color: white;
+    height: auto;
+    width: auto;
+    border-radius: 0px;
+    margin: 0px;
   }
 
-  .totalprice {
-    font: Bold 18px/15px Lato;
-    margin-bottom: 30px;
+  html,
+  body {
+    height: 50%;
+    margin: 0;
+    padding: 0;
   }
-  @media (min-width: 728px) {
-    .foot {
-      margin-right: 13%;
-      margin-top: 272px;
-    }
+  .login-wrapper {
+    height: 100%;
   }
-  @media (min-width: 1024px) {
-    .foot {
-      margin-right: 13%;
-      margin-top: 600px;
-    }
+  // .positronx
+  // {text-decoration:none;color:#ffffff;}
+  .box {
+    position: relative;
+    top: 0;
+    opacity: 1;
+    float: left;
+    padding: 60px 50px 40px 50px;
+    width: 83%;
+    // background-image: url(/assets/images/amm.jpg);
+    // color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transform: translate(50%, 50%);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 330px;
+    margin: -24px;
   }
-  @media (max-width: 414px) {
-    .foot {
-      margin-right: 8%;
-    }
-    .matcard2 {
-      margin-left: -18%;
-      width: 120%;
-    }
-    .bookdetails {
-      margin-left: 5%;
-      width: 85%;
-      .add {
-        width: fit-content !important;
-      }
-    }
-  }
-  .add {
-    background-color: rgba(246, 183, 22, 1);
-    color:  rgba(0, 48, 46, 1);
-      height: 35px;
-      width: 200px;
-      padding: 0px;
-      border-radius: 84px;
-      font-size: 20px;
-      border: none;
-      cursor: pointer;
-      font-weight: small;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 10px;
 
+
+
+  .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 15px;
+}
+
+  .submit {
+    display: flex;
+    justify-content: flex-end;
+    // align-items: center;
+    // align-content: center;
+    padding-top: 30px;
+    margin: 0px ;
+    // margin-left: 40px;
   }
-  .rating {
-    border: 1px solid #d6d3d3;
-    border-radius: 2px;
-    margin-top: 5px;
+  .login-wrapper .btn-block3 {
+    font-size: 18px;
+    color: rgba(0, 48, 46, 1);
   }
-  .single {
-    border: none;
-  }
-  .total {
-    border: none;
-    font-size: 14px;
+  .login-wrapper .btn-block1 {
+    font-size: 18px;
+    //  color: green;
+    width: 100%;
+    font-size: 18px;
     text-align: center;
-    padding-top: 9px;
-    height: 40px;
-    width: fit-content !important;
-    padding-right: 1px;
+    color: white;
+    background-color: rgba(0, 48, 46, 1);
     border-radius: 3px;
+    border: none;
+    opacity: 1;
+
+    // background-image: url(/assets/images/bookstore.jpg);
   }
+  .login-wrapper .btn-block2 {
+    font-size: 18px;
+    //  color: green;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 48, 46, 1);
+    border-radius: 3px;
+    border: none;
+    opacity: 1;
+
+    // background-image: url(/assets/images/bookstore.jpg);
+  }
+
+  .login-wrapper mat-card-header {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+  }
+  .login-wrapper mat-card-header mat-card-title {
+    font-size: 30px;
+    margin: 0;
+  }
+  .login-wrapper .mat-card {
+    padding: 30px 50px 30px;
+  }
+  .login-wrapper .mat-stroked-button {
+    border: 1px solid currentColor;
+    line-height: 54px;
+    background: #fff7fa;
+  }
+  // .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+  //   padding: 0.8375em 0;
+  //   width:50%;
+  // }
+  .login-wrapper .mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 50%;
+}
+  .login-wrapper {
+    background-image: url(/assets/images/blur.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    background-position: center;
+  }
+  .login-wrapper .login {
+    min-height: 70vh;
+  }
+  ::ng-deep {
+    $custom-main-color: red;
+    $custom-label-color: rgba(0, 0, 0, 0.6);
+
+    // mat-icon-stepper selected color change
+    .mat-step-header .mat-step-icon-selected,
+    .mat-step-header .mat-step-icon-state-done,
+    .mat-step-header .mat-step-icon-state-edit {
+      background-color: rgba(0, 48, 46, 1) !important;
+    }
+
+    // input outline color
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: rgb(159, 161, 159) !important;
+    }
+
+    // mat-input focused color
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+      color: rgba(0, 48, 46, 1) !important;
+    }
+
+    // mat-input error outline color
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid
+      .mat-form-field-outline-thick {
+      color: $custom-main-color !important;
+      opacity: 0.8 !important;
+    }
+
+    // mat-input caret color
+    .mat-input-element {
+      caret-color: $custom-main-color !important;
+    }
+
+    // mat-input error caret color
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $custom-main-color !important;
+    }
+
+    // mat-label normal state style
+    .mat-form-field-label {
+      color: rgb(110, 114, 110) !important;
+    }
+
+    // mat-label focused style
+    .mat-form-field.mat-focused .mat-form-field-label {
+      color: #0a0102 !important;
+    }
+
+    // mat-label error style
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+      color: $custom-main-color !important;
+    }
+  }
+  .grab {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+  .example-radio-group {
+    display: inline-flex;
+    flex-direction: row;
+  }
+  .popup
+  {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 70%;
+      border:none;
+      outline:none;
+      float: left;
+  }
+  .matcard{
+    /* margin-top: 100px; */
+    display: flex;
+    // justify-content: center;
+    width: 36%;
+    border-radius: 12px;
+    height: 3%;
+    background-color:whitesmoke;
+}
