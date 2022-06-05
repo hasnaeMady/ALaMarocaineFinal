@@ -6,19 +6,19 @@
         <div class="cartdetails" fxLayout="row" fxLayoutAlign="start stretch" style="margin-left: 2%;">
             <mat-card class="bookMatcard" fxLayoutAlign="center fit-content">
                 <div class="image">
-                    <img class="bookimg" src="assets\bookimage\{{book.image}}" />
+                    <img class="bookimg" src="assets\platimage\{{plat.image}}" />
                 </div>
             </mat-card>
             <div class="bookdetails">
                 <div class="booktitle" style="word-wrap: break-word; margin-bottom: 2%; font-size: 20px;">
-                    <Strong>{{book.bookName}}</Strong>
+                    <Strong>{{plat.bookName}}</Strong>
                 </div>
 
                 <div class="sub" style="word-wrap: break-word; margin-bottom: 4%;">
-                    Préparé par {{ book.authorName }}
+                    Préparé par {{ plat.Chefname }}
                 </div>
                 <div style="margin-bottom: 4%; font-size: 18px; margin-left: -25px;">
-                    <Strong>{{ book.price }} DHS</Strong>
+                    <Strong>{{ plat.price }} DHS</Strong>
                 </div>
                 <!--<div style="margin-bottom: 5%; font-size: 14px; margin-left: -25px;">
                     <strong>Seller:</strong>{{ " Dwayne Johnson" }}
@@ -56,11 +56,11 @@
                   color: #9d9d9d !important;
                   margin-top: 2px;
                 ">
-                            {{book.bookDetails}}
+                            {{plat.bookDetails}}
                         </div>
                     </div>
                     <div fxLayout="row" style="margin-left: -25px;">
-                        <button *ngIf="!isAdded; else added" mat-button class="add" (click)="addToCart(book.bookId)">
+                        <button *ngIf="!isAdded; else added" mat-button class="add" (click)="addToCart(plat.platId)">
                 Ajouter au panier
               </button>
                         <ng-template #added>
