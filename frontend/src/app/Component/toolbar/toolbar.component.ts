@@ -42,6 +42,7 @@ export class ToolbarComponent implements OnInit {
   length: any;
   password: string;
   platName: string;
+  email:string;
   totalItem;
   isbudget = false;
   isLogin = false;
