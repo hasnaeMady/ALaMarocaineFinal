@@ -33,7 +33,7 @@ export class ToolbarComponent implements OnInit {
 
 
   name: any;
-  id: any;
+  isAdmin = false;
   isUser = false;
   isSeller = false;
   userId: any;
@@ -72,8 +72,18 @@ export class ToolbarComponent implements OnInit {
     });
 
     this.getCartItemCount();
-    this.name = localStorage.getItem('Name');
+    this.name = localStorage.getItem('name');
+    this.userId = localStorage.getItem('id');
+    this.email = localStorage.getItem('email');
+    this.password = localStorage.getItem('password');
+    this.mobileNumber = localStorage.getItem('phone');
     this.role = localStorage.getItem('role');
+    console.log('role check toolbar', this.role);
+    
+    if (this.role === 'admin') {
+      this.isAdmin = true;
+      this.isLogin = true;
+    }
   
     
     if (this.role === 'seller') {
