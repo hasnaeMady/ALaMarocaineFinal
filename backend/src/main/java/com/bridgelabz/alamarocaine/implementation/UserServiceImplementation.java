@@ -36,6 +36,8 @@ public class UserServiceImplementation implements UserServices {
 	private Users users = new Users();
 	@Autowired
 	private IUserRepository repository;
+	@Autowired
+	private UserRepository userRepository;
 
 	@Autowired
 	private BCryptPasswordEncoder encryption;
