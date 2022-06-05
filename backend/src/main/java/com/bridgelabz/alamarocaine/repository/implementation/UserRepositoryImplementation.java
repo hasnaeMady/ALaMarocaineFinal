@@ -87,11 +87,12 @@ public class UserRepositoryImplementation implements IUserRepository {
 
 	}
 
+
 	@Override
 	public List<Users> getUsers() {
 		Session currentsession = entityManager.unwrap(Session.class);
 		List<Users> usersList = currentsession.createQuery("from Users").getResultList();
-		return usersList;
+		return  usersList;
 	}
 
 }
