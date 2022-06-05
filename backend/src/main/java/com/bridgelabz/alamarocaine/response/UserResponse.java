@@ -1,11 +1,11 @@
-package com.bridgelabz.bookstore.response;
+package com.bridgelabz.alamarocaine.response;
 
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 
-import com.bridgelabz.bookstore.entity.Book;
-import com.bridgelabz.bookstore.entity.Users;
+import com.bridgelabz.alamarocaine.entity.Plat;
+import com.bridgelabz.alamarocaine.entity.Users;
 
 public class UserResponse {
 	Users user;
