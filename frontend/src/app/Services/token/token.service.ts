@@ -38,7 +38,7 @@ export class TokenService {
   remove() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
-    localStorage.removeItem('Name');
+    localStorage.removeItem('name');
     localStorage.removeItem('role');
     localStorage.removeItem('phone');
     sessionStorage.clear();
