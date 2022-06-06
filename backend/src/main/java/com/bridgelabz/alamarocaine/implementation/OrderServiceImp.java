@@ -103,10 +103,10 @@ public class OrderServiceImp implements IOrderServices {
 								orderDetails.setAddressId(addressId);
 								orderDetails.setPlatsList(list);
 								details.add("Id de la commande:" + orderId + "<html><br></html>" + "Nom du plat:" + plat.getPlatName() + "<html><br></html>"
-										+ "Quantité commandée:" + platquantity.getQuantityOfPlat() + "<html><br></html>" + "Prix total:"
+										+ "QuantitÃ© commandÃ©e:" + platquantity.getQuantityOfPlat() + "<html><br></html>" + "Prix total:"
 										+ platquantity.getTotalprice());
 							} catch (Exception e) {
-								throw new UserException("Échec de la commande");
+								throw new UserException("Ã‰chec de la commande");
 							}
 						}//quantity for
 					} // if condition checks id of the plats
@@ -132,15 +132,15 @@ public class OrderServiceImp implements IOrderServices {
 	 				//+plat.getImage()+ "\" alt=\"platImage\">"
 	 				
 	 			 +userdetails.getEmail()+
-	 				" <br>"+"Détails de la commande: <br>"+" \n"+data+"\n"
-	 				+"<br>Veuillez nous évaluer en cliquant sur le lien ci-dessous:<br>"+"\n"
-	 		+"http://localhost:54670/plats/ratingreview<br>"
+	 				" <br>"+"DÃ©tails de la commande: <br>"+" \n"+data+"\n"
+	 				+"<br>Veuillez nous Ã©valuer en cliquant sur le lien ci-dessous:<br>"+"\n"
+	 		+"http://localhost:54670/plats/rateandreview/platId<br>"
 	
 	 		+ "</body>"
 	 		+ " </html>" ;
 			emailData.setEmail(userdetails.getEmail());
 	
-			emailData.setSubject("Votre commande est passée avec succès");
+			emailData.setSubject("Votre commande est passÃ©e avec succÃ¨s");
 	
 			emailData.setBody(body);
 
@@ -152,7 +152,7 @@ public class OrderServiceImp implements IOrderServices {
 			System.out.println("emailData.getSubject() "+emailData.getSubject());
 			System.out.println("emailData.getBody() "+emailData.getBody());
 			em.sendMail(emailData.getEmail(), emailData.getSubject(), emailData.getBody());
-			System.out.println("tarif envoi de courrier après la commande");
+			System.out.println("tarif envoi de courrier aprÃ¨s la commande");
 			/*
 			 * remove specific plat from the cart........
 			 */
