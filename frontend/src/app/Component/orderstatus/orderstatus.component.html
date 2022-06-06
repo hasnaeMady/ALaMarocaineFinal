@@ -1,3 +1,4 @@
+<app-toolbar></app-toolbar>
 <div class="main-container">
 
 
@@ -9,22 +10,18 @@
 
 
 
-            <div *ngFor=" let book of orderdetails | platsearchpipe:platSearch">
+            <div *ngFor=" let plat of orderdetails | platsearchpipe:platSearch">
 
 
                               <!--Affichage des commandes pour l'admin-->
 
-            <!----danger
+                <div *ngIf="isSeller">
 
-                <div *ngIf="isAdmin">
+                    <mat-card  style="display: flex;flex-direction: row;  padding: 1rem;" matTooltip="{{ plat.platDescription }}">
 
-                   // description du plat (tooltip)
-                    <mat-card  style="display: flex;flex-direction: row;  padding: 1rem;" matTooltip="{{ book.platDescription }}">
-
-                    //image du plat
                     <div>
                         <mat-card-title style="padding: 1rem;"  matTooltip="Update Image">
-                            <img src="assets\{{book.image}}" style="height: 13rem; width: 10rem; padding: 16px 0px 16px 16px ;" />
+                            <img src="assets\{{plat.image}}" style="height: 13rem; width: 10rem; padding: 16px 0px 16px 16px ;" />
                         </mat-card-title>
                     </div>
 
@@ -35,15 +32,14 @@
 
                         <mat-card-content style="display: flex;flex-direction: column;flex-wrap: nowrap;width: auto; margin-top: 10px; margin-bottom: 0px;">
 
-                           //Infos de la commande
-                            <div class="noofbooks">No De Commande : {{ book.orderId }}</div> 
+                            <div class="noofbooks">No De Commande : {{ plat.orderId }}</div> 
 
-                            <div class="bookname">Nom De Plat : {{ book.platName }}</div>  
-                            <div class="authorname">Nom de Chef : {{ book.chefName }}</div>  
-                            <div class="description">Description : {{ book.platDescription }}</div>
-                            <div class="description">Quantity of book : {{ book.quantityOfPlat}}</div> 
-                            <div class="price">Total Price : {{book.totalprice+"DH"}}</div>      
-                            <div class="status" >Order Status : <label style="color: green;">{{ book.orderStatus }}</label> </div>   
+                            <div class="bookname">Nom De Plat : {{ plat.platName }}</div>  
+                            <div class="authorname">Nom de Chef : {{ plat.chefName }}</div>  
+                            <div class="description">Description : {{ plat.platDescription }}</div>
+                            <div class="description">Quantité : {{ plat.quantityOfPlat}}</div> 
+                            <div class="price">Prix total : {{plat.totalprice+"DH"}}</div>      
+                            <div class="status" >Etat commande : <label style="color: green;">{{ plat.orderStatus }}</label> </div>   
 
 
 
@@ -53,12 +49,32 @@
 
 
                              
-                                <bouton a l'admin : "Modifier la commande" est masqué || désactivé   
-                                <div *ngIf="isAdmin">
-                                    <button id="updateOrderStatusBtn" [disabled]="book.orderStatus === 'in shipment' || book.orderStatus === 'delivered' || book.orderStatus === 'in progress'"
-                                    [hidden]="book.orderStatus === 'in shipment' || book.orderStatus === 'delivered' || book.orderStatus === 'in progress'" style="width: 8rem; margin-left: 0px; margin-top:auto; color: white; outline: none; border-radius: 0px; background-color: rgba(0, 48, 46, 1);"  (click)="updateOrderAdmin(book.orderId,'in progress')"  mat-button>
-                                     Update-Order
-                                      </button>
+                                <div *ngIf="isSeller">
+                                    <div style="display: flex; justify-content: flex-start; margin-left: 20px;">
+
+
+
+                                 
+                                        <div *ngIf="plat.orderStatus != 'Livré'" > 
+                                            <mat-form-field>
+                                                <mat-label>Mise à jour de l'état</mat-label>  
+                                                <mat-select disableRipple>
+        
+        
+                                                  <mat-option [disabled]="plat.orderStatus === 'En cours de livraison' || plat.orderStatus === 'Livré'" (click)="updateOrderSeller(plat.orderId,'En cours de livraison')" >En cours de livraison</mat-option>
+        
+                                                   <mat-option [disabled]="plat.orderStatus === 'En cours de préparation' || plat.orderStatus === 'Livré'  " (click)="updateOrderSeller(plat.orderId,'Livré')">Livré</mat-option>
+        
+                                                
+                                                
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+        
+        
+        
+        
+                                    </div>
                                 </div>
 
 
@@ -85,13 +101,14 @@
 
 
                 </div>
+            </div>
 
-            -->
+
 
 
 
                  <!---Seller avec    condition : *ngIf="book.orderStatus !='delivered' && book.orderStatus !='pending' "-->
-            
+            <!--
                 <div *ngIf="isSeller">
 
                 <mat-card *ngIf="book.orderStatus !='delivered' && book.orderStatus !='pending' " style="display: flex;flex-direction: row;  padding: 1rem;" matTooltip="{{ book.platDescription }}">
@@ -123,16 +140,14 @@
 
 
                                  
-                                <div *ngIf="book.orderStatus != 'delivered'" > <!--si la commande n'est pas délivrée-->
+                                <div *ngIf="book.orderStatus != 'delivered'" > 
                                     <mat-form-field>
-                                        <mat-label>Update Order Status</mat-label>  <!--Alors le seller a la possibilté de changer l'état de la commande-->
+                                        <mat-label>Update Order Status</mat-label>  
                                         <mat-select disableRipple>
 
 
-                                            <!-- En route || Livrée  ==>En route  -->
                                           <mat-option [disabled]="book.orderStatus === 'in shipment' || book.orderStatus === 'delivered'" (click)="updateOrderSeller(book.orderId,'in shipment')" >In Shipment</mat-option>
 
-                                            <!--En progrès || Livrée ==> Livrée-->
                                            <mat-option [disabled]="book.orderStatus === 'in progress' || book.orderStatus === 'delivered'  " (click)="updateOrderSeller(book.orderId,'delivered')">Delivered</mat-option>
                                         </mat-select>
                                     </mat-form-field>
@@ -152,7 +167,7 @@
 
 
 
-            </div>
+            </div>-->
 
       
 
