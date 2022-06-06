@@ -60,6 +60,7 @@ const routes: Routes = [
   {path: 'plats/orders', component: OrderstatusComponent},
   {path: 'ratedplats', component: RatedplatsComponent},
   {path: 'platreviews', component: PlatreviewsComponent},
+  {path: 'orders', component: OrderstatusComponent},
 
 
 
