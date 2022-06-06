@@ -385,17 +385,18 @@ public class PlatServiceImplementation implements IPlatService {
 	@Override
 	public boolean writeReviewAndRating(String token, RatingReviewDTO rrDTO, Long platId) {
 
-
+                System.out.println("ryftuyghj");
 		Long userId = generate.parseJWT(token);
 		Users user = userRepository.getUserById(userId);
-		ReviewAndRating review = rrRepository.getPlatReview(platId, user.getName());
-		if (review == null) {
+		ReviewAndRating review = rrRepository.getBookReview(bookId , user.getName());
+		if(review==null) {
 			ReviewAndRating rr = new ReviewAndRating(rrDTO);
-			rr.setPlatId(platId);
+			rr.setBookId(bookId);
 			rr.setUserName(user.getName());
-			rrRepository.save(rr);
+			ReviewAndRating r =rrRepository.save(rr);
+			System.out.println(r.getReview());
 			return true;
-
+			
 		}
 		return false;
 
