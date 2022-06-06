@@ -168,8 +168,8 @@ export class PlatService {
     return this.http.get(`${environment.BASE_URL}/${environment.getSortedPlatByRate}`, this.httpOptions);
   }
   public getOnePlat(platId: number , token: any) {
-    return this.http.get(`${this.baseUrl}/plats/getplat/${platId}`,
-    {headers: new HttpHeaders({token})});
+    return this.http.get(`${this.baseUrl}/plats/getplat/${platId}`
+    );
   }
 
   public getOnePlatById(platId: number) {
