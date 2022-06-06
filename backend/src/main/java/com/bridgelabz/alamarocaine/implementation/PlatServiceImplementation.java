@@ -388,10 +388,10 @@ public class PlatServiceImplementation implements IPlatService {
                 System.out.println("ryftuyghj");
 		Long userId = generate.parseJWT(token);
 		Users user = userRepository.getUserById(userId);
-		ReviewAndRating review = rrRepository.getBookReview(bookId , user.getName());
+		ReviewAndRating review = rrRepository.getPlatReview(platId , user.getName());
 		if(review==null) {
 			ReviewAndRating rr = new ReviewAndRating(rrDTO);
-			rr.setBookId(bookId);
+			rr.setPlatId(platId);
 			rr.setUserName(user.getName());
 			ReviewAndRating r =rrRepository.save(rr);
 			System.out.println(r.getReview());
