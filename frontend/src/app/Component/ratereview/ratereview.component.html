@@ -42,9 +42,9 @@
                 star
               </mat-icon>
             </button>
-                    <!--button mat-button class="rating" (click)="rateNow(this)" style="color: #0a0102; background-color: rgb(188, 201, 188);">
+                    <button mat-button class="rating" (click)="rateNow(this)" style="color: #0a0102; background-color: rgb(188, 201, 188);">
               <strong >Evaluez maintenant</strong>
-            </button--> 
+            </button> 
                 </div>
                 <div fxLayout="row wrap">
                     <div fxLayout="row" style="margin-bottom: 5%;">
@@ -119,6 +119,71 @@
             </div>
         </div>
     </mat-card>
+
+    <div class="container">
+        <div fxLayout="column" style="margin-left: 2%; margin-right: 2%; margin-top: 5%; ">
+            <div style="font-size: 20px;"><strong>Recommendations</strong>
+            </div>
+        </div>
+
+    <div class="list-books">
+
+        <div *ngFor="let plat of platsRecommende">
+
+            <mat-card style="height: 22.5em; width: 220px;  margin-right: 20px; margin-top: 20px;" class="tooltip1">
+
+                <mat-card-title matTooltip="Book Image" (click)="Deatails(plat.platId)">
+                    <img src="assets\platimage\{{plat.image}}" style="height: 150px; width: 90px;margin-left: 55px; margin-right: 55px; padding-top: 20px; padding-bottom: 20px; " />
+                </mat-card-title>
+
+                <mat-card-content style="width: 16em; ">
+
+                    <div class="out-of-stock " *ngIf="!plat.noOfPlats ">En rupture de stock</div>
+                    <div class="bookname ">{{ plat.platName }}</div>
+
+
+                    <div class="authorname ">Par {{ plat.chefName }}</div>
+                    <div class="price ">Prix: {{ plat.price }} DH</div>
+                    <div class="availablity " style="color: rgb(163, 43, 6); " *ngIf="plat.noOfPlats < 5 && plat.noOfPlats; else elsecondition ">
+                        Il ne reste que {{ plat.noOfPlats }} dépêchez-vous !!
+                    </div>
+
+
+                    <ng-template #elsecondition>
+                        <div class="availablity " style="color: rgb(2, 110, 2); " *ngIf="plat.noOfPlats ">
+                            Plats disponibles: {{ plat.noOfPlats }}
+                        </div>
+                        <div style="height: 26px; " *ngIf="!plat.noOfPlats "></div>
+                    </ng-template>
+
+
+
+                   <!--boutons "Ajouter au panier" et "ajouter aux favoris"--> 
+
+
+                    <div class="cart-buttons " *ngIf="plat.noOfPlats && value[plat.platId] !=plat.platId ">
+
+                        <!--ajouter au panier-->
+                        <div>
+                            <button class="addtobag " (output)="getUpdatedNotes($event)" (click)="addtobag(plat.platId)" #clickState mat-button>Ajouter au panier</button>
+                        </div>
+
+                    </div>
+
+
+                    <!--le bouton "Ajouté au panier"-->
+                    <div class="addedbtn " *ngIf="plat.noOfPlats && value[plat.platId]==plat.platId ">
+                        <button  mat-button>Ajouté au Panier </button>
+                    </div>
+
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+
+    </div>
+    
 </div>
 <div class="foot" style="top: 720px; margin-top: 5%; margin-right: 0;">
     <app-footer></app-footer>
