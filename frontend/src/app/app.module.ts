@@ -73,6 +73,7 @@ import { DisplaychefComponent } from './Component/displaychef/displaychef.compon
 import { HomeSellerComponent } from './Component/home-seller/home-seller.component';
 import { CandidaturesSellerComponent } from './Component/home-seller/candidatures-seller/candidatures-seller.component';
 import { AccueilSellerComponent } from './Component/home-seller/accueil-seller/accueil-seller.component';
+import {RecomComponent} from './Component/home-client/recom/recom.component';
 
 
 
@@ -129,6 +130,7 @@ import { AccueilSellerComponent } from './Component/home-seller/accueil-seller/a
     HomeSellerComponent,
     CandidaturesSellerComponent,
     AccueilSellerComponent,
+    RecomComponent,
 
 
   
